@@ -329,22 +329,30 @@
         }
 
         .education-item {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--border);
+            background: var(--surface);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
         }
 
-        .education-item:last-child {
-            border-bottom: none;
+        .education-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--accent);
+            border-radius: 2px 0 0 2px;
         }
 
         .education-year {
             font-size: 0.875rem;
             font-weight: 600;
             color: var(--text-muted);
-            padding-top: 0.5rem;
+            margin-bottom: 0.5rem;
         }
 
         .education-content h3 {
