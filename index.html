@@ -398,6 +398,71 @@
             transform: scale(1.05);
         }
 
+        /* Research Section */
+        .research-item {
+            background: var(--surface);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .research-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--accent);
+            border-radius: 2px 0 0 2px;
+        }
+
+        .research-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .research-title {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .research-venue {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .research-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .research-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            padding: 0.25rem 0.75rem;
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            line-height: 1.9;
+        }
+
         /* Projects Section */
         .projects-grid {
             display: grid;
@@ -921,32 +986,39 @@
             <div class="section-divider"></div>
         </div>
         <div class="education-timeline fade-in">
-            <div class="edu-entry reveal">
-                <div class="edu-year">2026 - Present</div>
-                <div>
-                    <div class="edu-inst">
-                        <div class="edu-image-placeholder">
-                            <div class="edu-image-icon">📚</div>
-                        </div>
-                        Chulalongkorn University
+            <div class="research-item">
+                <div class="research-label">2026 - Present</div>
+                <h3 class="research-title">Chulalongkorn University</h3>
+                <div class="research-venue">B.Eng. Computer Engineering and Digital Technology (CEDT)</div>
+                <p class="research-description">
+                    <div class="edu-image-placeholder">
+                        <div class="edu-image-icon">📚</div>
                     </div>
-                    <div class="edu-degree">B.Eng. Computer Engineering and Digital Technology (CEDT)</div>
-                    <div class="edu-degree">Year 1, Class of 2030</div>
-                    <div class="edu-details">Focus: Machine Learning, Computer Vision, Thai NLP</div>
-                </div>
+                    B.Eng. Computer Engineering and Digital Technology (CEDT)
+                </p>
+                <p class="research-description">
+                    Year 1, Class of 2030
+                </p>
+                <p class="research-description">
+                    Focus: Machine Learning, Computer Vision, Thai NLP
+                </p>
             </div>
-            <div class="edu-entry reveal">
-                <div class="edu-year">High School<br>GPAX 3.61</div>
-                <div>
-                    <div class="edu-inst">
-                        <div class="edu-image-placeholder">
-                            <div class="edu-image-icon">🎓</div>
-                        </div>
-                        Saraburi Wittayakhom School
+            <div class="research-item">
+                <div class="research-label">High School</div>
+                <h3 class="research-title">Saraburi Wittayakhom School</h3>
+                <div class="research-venue">High School (Math-Science Program)</div>
+                <p class="research-description">
+                    <div class="edu-image-placeholder">
+                        <div class="edu-image-icon">🎓</div>
                     </div>
-                    <div class="edu-degree">High School (Math-Science Program)</div>
-                    <div class="edu-degree" style="margin-top: 0.35rem; font-size: 13px; color: var(--text-muted);">Advanced C++, data structures, competitive programming</div>
-                </div>
+                    Saraburi Wittayakhom School
+                </p>
+                <p class="research-description">
+                    High School (Math-Science Program)
+                </p>
+                <p class="research-description" style="margin-top: 0.35rem; font-size: 13px; color: var(--text-muted);">
+                    Advanced C++, data structures, competitive programming
+                </p>
             </div>
         </div>
     </section>
