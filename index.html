@@ -369,7 +369,7 @@
             margin-bottom: 0.5rem;
         }
 
-        .education-content h3 {
+        .education-institution {
             font-family: var(--font-serif);
             font-size: 1.5rem;
             font-weight: 500;
@@ -382,7 +382,7 @@
             margin-bottom: 0.5rem;
         }
 
-        .edu-details {
+        .education-details {
             font-size: 0.875rem;
             color: var(--text-muted);
         }
@@ -581,44 +581,25 @@
         }
 
         .skill-item {
-            font-size: 1rem;
+            font-size: 14px;
             color: var(--text-secondary);
             padding: 0.5rem 0;
             border-bottom: 1px solid var(--border);
+            line-height: 1.9;
         }
 
         .skill-item:last-child {
             border-bottom: none;
         }
 
-        .skill-item { font-size: 14px; color: var(--text-secondary); line-height: 1.9; }
-
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .about-content, .contact-content, .vol-grid { 
+            .about-content, .contact-content, .vol-grid, .vol-extra-grid { 
                 grid-template-columns: 1fr; 
                 gap: 2rem; 
             }
             .nav-links { 
                 display: none; 
-            }
-            .theme-toggle {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 40px;
-                height: 40px;
-                border: 2px solid var(--border);
-                border-radius: 50%;
-                background: var(--surface);
-                color: var(--text-secondary);
-                cursor: pointer;
-                transition: all 0.3s ease;
-            }
-            .theme-toggle:hover {
-                color: var(--accent);
-                border-color: var(--accent);
-                transform: scale(1.05);
             }
             .projects-grid {
                 grid-template-columns: 1fr;
@@ -680,6 +661,12 @@
         
         /* Volunteer Section */
         .vol-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .vol-extra-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
@@ -1001,7 +988,7 @@
             <div class="about-details">
                 <div class="detail-item">
                     <div class="detail-label">Full Name</div>
-                    <div class="detail-value">Witsanupong Kolakul (wichanupong kolakul)</div>
+                    <div class="detail-value">Witsanupong Kolakul</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-label">Nickname</div>
@@ -1025,8 +1012,8 @@
                         <div class="stat-label">GitHub Projects</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">1+</div>
-                        <div class="stat-label">Years Research</div>
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Research Papers</div>
                     </div>
                 </div>
             </div>
@@ -1041,33 +1028,18 @@
             <div class="section-divider"></div>
         </div>
         <div class="education-timeline fade-in">
-            <div class="research-item">
-                <div class="research-label">2026 - Present</div>
-                <h3 class="research-title">Chulalongkorn University</h3>
-                <div class="research-venue">B.Eng. Computer Engineering and Digital Technology (CEDT)</div>
-                <p class="research-description">
-                    B.Eng. Computer Engineering and Digital Technology (CEDT)
-                </p>
-                <p class="research-description">
-                    Year 1, Class of 2030
-                </p>
-                <p class="research-description">
-                    Focus: Machine Learning, Computer Vision, Thai NLP
-                </p>
+            <div class="education-item">
+                <div class="education-year">2026 - Present</div>
+                <h3 class="education-institution">Chulalongkorn University</h3>
+                <div class="education-degree">B.Eng. Computer Engineering and Digital Technology (CEDT)</div>
+                <div class="education-degree">Year 1, Class of 2030</div>
+                <div class="education-details">Focus: Machine Learning, Computer Vision, Thai NLP</div>
             </div>
-            <div class="research-item">
-                <div class="research-label">High School</div>
-                <h3 class="research-title">Saraburi Wittayakhom School</h3>
-                <div class="research-venue">High School (Math-Science Program)</div>
-                <p class="research-description">
-                    Saraburi Wittayakhom School
-                </p>
-                <p class="research-description">
-                    High School (Math-Science Program)
-                </p>
-                <p class="research-description" style="margin-top: 0.35rem; font-size: 13px; color: var(--text-muted);">
-                    Advanced C++, data structures, competitive programming
-                </p>
+            <div class="education-item">
+                <div class="education-year">High School</div>
+                <h3 class="education-institution">Saraburi Wittayakhom School</h3>
+                <div class="education-degree">High School (Math-Science Program)</div>
+                <div class="education-details">Advanced C++, data structures, competitive programming</div>
             </div>
         </div>
     </section>
@@ -1443,18 +1415,16 @@
             </div>
         </div>
 
-        <div style="margin-top: 2.5rem;" class="fade-in">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                <div class="vol-item">
-                    <div class="vol-title">Open Source · GitHub Projects</div>
-                    <div class="vol-sub">github.com/itertius</div>
-                    <div class="vol-desc">Shares ML projects, competition notebooks, and research code publicly for the community.</div>
-                </div>
-                <div class="vol-item">
-                    <div class="vol-title">Technical Blog · Medium</div>
-                    <div class="vol-sub">Witsanupong Kolakul · Majectic Eagles Ltd</div>
-                    <div class="vol-desc">Writes technical articles on ML topics - including "Tomato Disease Classification" - to share knowledge with fellow enthusiasts.</div>
-                </div>
+        <div class="vol-extra-grid fade-in">
+            <div class="vol-item">
+                <div class="vol-title">Open Source · GitHub Projects</div>
+                <div class="vol-sub">github.com/itertius</div>
+                <div class="vol-desc">Actively contributing to open source projects and maintaining a public GitHub profile with various AI/ML implementations, tools, and research code.</div>
+            </div>
+            <div class="vol-item">
+                <div class="vol-title">Technical Writing · Medium Blog</div>
+                <div class="vol-sub">medium.com/@itertius</div>
+                <div class="vol-desc">Writing technical articles and tutorials on AI, machine learning, and software development to share knowledge with the developer community.</div>
             </div>
         </div>
     </section>
@@ -1532,37 +1502,22 @@
     </footer>
 
     <script>
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-
-        // Intersection Observer for slide-in animations
-        const slideObserverOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const slideObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, slideObserverOptions);
-
         // Fade-in animations for sections
         document.addEventListener('DOMContentLoaded', () => {
+            // Intersection Observer for fade-in animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
             // Observe all fade-in elements
             document.querySelectorAll('.fade-in').forEach(el => {
                 observer.observe(el);
@@ -1570,7 +1525,7 @@
         });
 
         // Active navigation highlighting
-        const sections = document.querySelectorAll('section[id]');
+        const sections = document.querySelectorAll('section[id], .hero[id]');
         const navLinks = document.querySelectorAll('.nav-link');
 
         window.addEventListener('scroll', () => {
@@ -1606,15 +1561,7 @@
             });
         });
 
-        // Add some subtle parallax effect to hero section (clamped)
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            if (hero && scrolled < 300) {
-                hero.style.transform = `translateY(${scrolled * 0.2}px)`;
-            }
-        });
-
+        
         // Theme Toggle Functionality
         const themeToggle = document.getElementById('theme-toggle');
         const html = document.documentElement;
