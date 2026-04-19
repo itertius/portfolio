@@ -730,6 +730,28 @@
             }
         }
 
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -739,6 +761,28 @@
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
     </style>
 </head>
@@ -1331,9 +1375,59 @@
             });
         }, observerOptions);
 
-        // Observe all fade-in elements
+        // Intersection Observer for fade-in animations
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
+        });
+
+        // Intersection Observer for slide-in animations
+        const slideObserverOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const slideObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, slideObserverOptions);
+
+        // Observe project cards for slide-in animation
+        document.querySelectorAll('.project-card').forEach((el, index) => {
+            el.classList.add('slide-in');
+            // Alternate animation direction
+            if (index % 2 === 0) {
+                el.classList.add('slide-in-left');
+            } else {
+                el.classList.add('slide-in-right');
+            }
+            slideObserver.observe(el);
+        });
+
+        // Observe award cards for slide-in animation
+        document.querySelectorAll('.project-card').forEach((el, index) => {
+            el.classList.add('slide-in');
+            // Alternate animation direction
+            if (index % 2 === 0) {
+                el.classList.add('slide-in-left');
+            } else {
+                el.classList.add('slide-in-right');
+            }
+            slideObserver.observe(el);
+        });
+
+        // Observe skill items for slide-in animation
+        document.querySelectorAll('.skill-item').forEach((el, index) => {
+            el.classList.add('slide-in');
+            // Alternate animation direction
+            if (index % 2 === 0) {
+                el.classList.add('slide-in-left');
+            } else {
+                el.classList.add('slide-in-right');
+            }
+            slideObserver.observe(el);
         });
 
         // Active navigation highlighting
