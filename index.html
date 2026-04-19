@@ -14,6 +14,11 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Witsanupong Kolakul · AI Engineer & Researcher">
     <meta name="twitter:description" content="AI Engineer & Researcher specializing in Computer Vision, Thai NLP, and AI research.">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/logo/favicon_io/apple-touch-icon.png?v=2026">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/logo/favicon_io/favicon-32x32.png?v=2026">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/logo/favicon_io/favicon-16x16.png?v=2026">
+    <link rel="manifest" href="assets/logo/favicon_io/site.webmanifest?v=2026">
+    <link rel="shortcut icon" href="assets/logo/favicon_io/favicon.ico?v=2026">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
     <style>
@@ -443,6 +448,8 @@
             padding: 2rem;
             margin-bottom: 2rem;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .research-item::before {
@@ -481,7 +488,14 @@
             font-size: 1rem;
             color: var(--text-secondary);
             line-height: 1.7;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .research-link-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            margin: 1rem 0;
         }
 
         .research-tags {
@@ -861,36 +875,25 @@
             will-change: transform; /* Hardware acceleration */
         }
 
-        .matrix-rain {
+        .falling-particles {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 0;
-            opacity: 0.1;
-            font-family: monospace;
-            font-size: 14px;
-            color: var(--accent);
+            z-index: 1;
             overflow: hidden;
         }
 
-        .tech-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--accent), #6366f1);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin: 0.25rem;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        .falling-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0.6;
+            pointer-events: none;
         }
 
         /* Responsive Design */
@@ -1034,7 +1037,7 @@
 <!-- Interactive Gimmicks -->
 <div class="floating-particles" id="particles"></div>
 <div class="cursor-trail" id="cursorTrail"></div>
-<div class="matrix-rain" id="matrixRain"></div>
+<div class="falling-particles" id="fallingParticles"></div>
 <!-- Navigation -->
 <nav>
 <div class="nav-container">
@@ -1398,7 +1401,7 @@
                     Extended workshop submission focusing on practical applications and implementation details 
                     of the UColor system for seasonal color analysis with perceptual awareness in computer vision tasks.
                 </p>
-                <div style="margin-top: 1rem; text-align: left;">
+                <div class="research-link-wrapper">
                     <a href="https://drive.google.com/file/d/1C-ibRBdbOys0d-G0uzMhW0tbVD3oLVbP/view?usp=sharing" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.875rem; font-weight: 500;">
                         View Workshop Paper ->
                     </a>
@@ -1422,7 +1425,7 @@
                     using FaRL backbone with a hybrid perceptual loss (Cross-Entropy + CIEDE2000) to classify 
                     Seasonal Colors in a perceptually-aware manner.
                 </p>
-                <div style="margin-top: 1rem; text-align: left;">
+                <div class="research-link-wrapper">
                     <a href="https://drive.google.com/file/d/1u7AHKhAA4DONgr4fI0H77IUHiwcUufx8/view?usp=sharing" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.875rem; font-weight: 500;">
                         View Full Paper ->
                     </a>
@@ -1649,7 +1652,7 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-text">© 2026 Witsanupong Kolakul</div>
+            <div class="footer-text"> 2026 Witsanupong Kolakul</div>
             <div class="footer-links">
                 <a href="#home">Home</a>
                 <a href="https://github.com/itertius" target="_blank">GitHub</a>
@@ -1747,52 +1750,47 @@
 
         // Interactive Gimmicks: Cursor Trail and Typing Effect
         document.addEventListener('DOMContentLoaded', () => {
-            // Matrix Rain Effect (10 particles) - Fresh implementation
-            const matrixRain = document.getElementById('matrixRain');
-            if (matrixRain) {
-                const matrixChars = '01AI SPACE TECH';
-                matrixRain.innerHTML = ''; // Clear any existing content
+
+            // Falling Particles Effect (8 particles)
+            const fallingParticles = document.getElementById('fallingParticles');
+            if (fallingParticles) {
+                fallingParticles.innerHTML = ''; // Clear any existing content
                 
-                for (let i = 0; i < 10; i++) {
-                    const column = document.createElement('div');
-                    column.style.cssText = `
-                        position: absolute; 
-                        left: ${Math.random() * 100}%; 
-                        top: -100px; 
-                        font-family: monospace; 
-                        color: var(--accent); 
-                        opacity: 0.15;
-                        font-size: 14px;
-                        white-space: pre;
-                        pointer-events: none;
+                for (let i = 0; i < 8; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'falling-particle';
+                    
+                    // Random starting position
+                    const startX = Math.random() * 100;
+                    const startY = -10;
+                    
+                    // Random animation duration
+                    const duration = Math.random() * 8 + 12; // 12-20 seconds
+                    const delay = Math.random() * 5; // 0-5 seconds delay
+                    
+                    particle.style.cssText = `
+                        left: ${startX}%;
+                        top: ${startY}px;
+                        animation: fall ${duration}s linear infinite;
+                        animation-delay: ${delay}s;
                     `;
                     
-                    let text = '';
-                    for (let j = 0; j < 25; j++) {
-                        text += matrixChars[Math.floor(Math.random() * matrixChars.length)] + '\n';
-                    }
-                    column.textContent = text;
-                    
-                    const duration = Math.random() * 8 + 12; // 12-20 seconds
-                    column.style.animation = `matrixFall ${duration}s linear infinite`;
-                    column.style.animationDelay = `${Math.random() * 5}s`;
-                    
-                    matrixRain.appendChild(column);
+                    fallingParticles.appendChild(particle);
                 }
 
-                // Add or update falling animation
-                let matrixStyle = document.getElementById('matrixStyle');
-                if (!matrixStyle) {
-                    matrixStyle = document.createElement('style');
-                    matrixStyle.id = 'matrixStyle';
-                    matrixStyle.textContent = `
-                        @keyframes matrixFall {
+                // Add falling animation
+                let fallingStyle = document.getElementById('fallingStyle');
+                if (!fallingStyle) {
+                    fallingStyle = document.createElement('style');
+                    fallingStyle.id = 'fallingStyle';
+                    fallingStyle.textContent = `
+                        @keyframes fall {
                             to { 
-                                transform: translateY(calc(100vh + 200px)); 
+                                transform: translateY(calc(100vh + 20px)); 
                             }
                         }
                     `;
-                    document.head.appendChild(matrixStyle);
+                    document.head.appendChild(fallingStyle);
                 }
             }
 
