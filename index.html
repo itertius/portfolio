@@ -368,9 +368,34 @@
             margin-bottom: 0.5rem;
         }
 
-        .education-details {
+        .education.edu-details {
             font-size: 0.875rem;
             color: var(--text-muted);
+        }
+
+        .edu-image-placeholder {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-image-icon {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            background: var(--background);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .edu-image-icon:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            transform: scale(1.05);
         }
 
         /* Projects Section */
@@ -899,7 +924,12 @@
             <div class="edu-entry reveal">
                 <div class="edu-year">2026 - Present</div>
                 <div>
-                    <div class="edu-inst">Chulalongkorn University</div>
+                    <div class="edu-inst">
+                        <div class="edu-image-placeholder">
+                            <div class="edu-image-icon">📚</div>
+                        </div>
+                        Chulalongkorn University
+                    </div>
                     <div class="edu-degree">B.Eng. Computer Engineering and Digital Technology (CEDT)</div>
                     <div class="edu-degree">Year 1, Class of 2030</div>
                     <div class="edu-details">Focus: Machine Learning, Computer Vision, Thai NLP</div>
@@ -908,7 +938,12 @@
             <div class="edu-entry reveal">
                 <div class="edu-year">High School<br>GPAX 3.61</div>
                 <div>
-                    <div class="edu-inst">Saraburi Wittayakhom School</div>
+                    <div class="edu-inst">
+                        <div class="edu-image-placeholder">
+                            <div class="edu-image-icon">🎓</div>
+                        </div>
+                        Saraburi Wittayakhom School
+                    </div>
                     <div class="edu-degree">High School (Math-Science Program)</div>
                     <div class="edu-degree" style="margin-top: 0.35rem; font-size: 13px; color: var(--text-muted);">Advanced C++, data structures, competitive programming</div>
                 </div>
