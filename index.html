@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Witsanupong Kolakul Portfolio</title>
+    <title>Witsanupong Kolakul · ML Researcher & CEDT Student</title>
+    <meta name="description" content="Witsanupong Kolakul - Machine Learning Researcher & CEDT Student at Chulalongkorn University. Specializing in Computer Vision, Thai NLP, and AI research with 8+ national awards and 10+ GitHub projects.">
+    <meta property="og:title" content="Witsanupong Kolakul · ML Researcher & CEDT Student">
+    <meta property="og:description" content="Machine Learning Researcher & CEDT Student specializing in Computer Vision, Thai NLP, and AI research.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://itertius.github.io/portfolio/">
+    <meta property="og:image" content="https://itertius.github.io/portfolio/og-image.jpg">
+    <meta property="og:site_name" content="Witsanupong Kolakul Portfolio">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Witsanupong Kolakul · ML Researcher & CEDT Student">
+    <meta name="twitter:description" content="Machine Learning Researcher & CEDT Student specializing in Computer Vision, Thai NLP, and AI research.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
     <style>
@@ -368,7 +378,7 @@
             margin-bottom: 0.5rem;
         }
 
-        .education.edu-details {
+        .edu-details {
             font-size: 0.875rem;
             color: var(--text-muted);
         }
@@ -537,69 +547,7 @@
         }
 
         /* Research Section */
-        .research-item {
-            background: var(--surface);
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            padding: 2rem;
-            margin-bottom: 2rem;
-            position: relative;
-        }
-
-        .research-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: var(--accent);
-            border-radius: 2px 0 0 2px;
-        }
-
-        .research-label {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-        }
-
-        .research-title {
-            font-family: var(--font-serif);
-            font-size: 1.5rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .research-venue {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-
-        .research-description {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .research-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tag {
-            padding: 0.25rem 0.75rem;
-            background: var(--background);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-        }
-
+        
         /* Skills Section */
         .skills-grid {
             display: grid;
@@ -639,7 +587,37 @@
             border-bottom: none;
         }
 
-        .skill-item { font-size: 14px; color: var(--ink); line-height: 1.9; }
+        .skill-item { font-size: 14px; color: var(--text-secondary); line-height: 1.9; }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .about-content, .contact-content, .vol-grid { 
+                grid-template-columns: 1fr; 
+                gap: 2rem; 
+            }
+            .nav-links { 
+                display: none; 
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background: #0a0a0a;
+                --surface: #1a1a1a;
+                --text-primary: #ffffff;
+                --text-secondary: #b0b0b0;
+                --text-muted: #808080;
+                --border: #333333;
+                --accent: #4a9eff;
+            }
+        }
 
         /* Volunteer Section */
         .vol-grid {
@@ -648,7 +626,9 @@
             gap: 2rem;
         }
         .vol-item {
-            padding: 1.5rem; border: 1px solid var(--border);
+            padding: 1.5rem; 
+            border: 1px solid var(--border);
+            border-radius: 12px;
             transition: border-color 0.2s;
         }
         .vol-item:hover { border-color: var(--text-secondary); }
@@ -1441,9 +1421,15 @@
                     </div>
                 </div>
                 <div class="contact-item">
+                    <div class="contact-label">LinkedIn</div>
+                    <div class="contact-value">
+                        <a href="https://linkedin.com/in/witsanupong-kolakul" target="_blank">linkedin.com/in/witsanupong-kolakul</a>
+                    </div>
+                </div>
+                <div class="contact-item">
                     <div class="contact-label">Instagram</div>
                     <div class="contact-value">
-                        <a href="#" target="_blank">@iterrius_te</a>
+                        <a href="https://instagram.com/iterrius_te" target="_blank">@iterrius_te</a>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -1485,10 +1471,6 @@
             });
         }, observerOptions);
 
-        // Intersection Observer for fade-in animations
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
 
         // Intersection Observer for slide-in animations
         const slideObserverOptions = {
@@ -1549,12 +1531,12 @@
             });
         });
 
-        // Add some subtle parallax effect to hero section
+        // Add some subtle parallax effect to hero section (clamped)
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const hero = document.querySelector('.hero');
-            if (hero) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            if (hero && scrolled < 300) {
+                hero.style.transform = `translateY(${scrolled * 0.2}px)`;
             }
         });
     </script>
