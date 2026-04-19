@@ -1640,10 +1640,11 @@
                 new SliderManager(awardsGrid, Array.from(awardCards), 3);
             }
 
-            // Skills slider
+            // Skills slider - handle complex structure with categories
             const skillsGrid = document.querySelector('#skills .skills-grid');
             if (skillsGrid) {
-                const skillItems = skillsGrid.querySelectorAll('.skill-item');
+                // Get all skill items from all categories
+                const skillItems = skillsGrid.querySelectorAll('.skill-category .skill-item');
                 new SliderManager(skillsGrid, Array.from(skillItems), 3);
             }
         });
