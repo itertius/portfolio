@@ -274,7 +274,7 @@
         .about-details {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 0.75rem;
         }
 
         .detail-item {
@@ -310,8 +310,8 @@
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-top: 2rem;
+            gap: 1.5rem;
+            margin-top: 0.25rem;
         }
 
         .stat-item {
@@ -339,7 +339,7 @@
         .education-timeline {
             display: flex;
             flex-direction: column;
-            gap: 3rem;
+            gap: 1.5rem;
         }
 
         .education-item {
@@ -347,8 +347,35 @@
             border-radius: 12px;
             border: 1px solid var(--border);
             padding: 2rem;
-            margin-bottom: 2rem;
             position: relative;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .education-content {
+            flex: 1;
+        }
+
+        .education-image {
+            flex-shrink: 0;
+            width: 160px;
+            height: 160px;
+            background: transparent;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            padding: 1rem;
+            object-fit: contain;
+        }
+
+        .education-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 4px;
         }
 
         .education-item::before {
@@ -481,7 +508,7 @@
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
+            gap: 1.5rem;
             margin-top: 1rem;
         }
 
@@ -553,10 +580,16 @@
         /* Research Section */
         
         /* Skills Section */
-        .skills-grid {
+        /* .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
+        } */
+         .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 280px));
+            gap: 1.5rem;
+            justify-content: center;
         }
 
         .skill-category {
@@ -663,13 +696,14 @@
         .vol-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .vol-extra-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
         }
         .vol-item {
             padding: 1.5rem; 
@@ -992,14 +1026,14 @@
                 </div>
                 <div class="detail-item">
                     <div class="detail-label">Nickname</div>
-                    <div class="detail-value">Tete</div>
+                    <div class="detail-value">Tetae</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-label">Contact</div>
                     <div class="detail-value">
-                        <a href="mailto:teverygood@gmail.com">teverygood@gmail.com</a><br>
-                        <a href="tel:0994090950">099 409 0950</a><br>
-                        <a href="https://github.com/itertius" target="_blank">github.com/itertius</a>
+                        <a href="mailto:teverygood@gmail.com" style="color: var(--text)">teverygood@gmail.com</a><br>
+                        <a href="tel:0994090950" style="color: var(--text)">099 409 0950</a><br>
+                        <a href="https://github.com/itertius" target="_blank" style="color: var(--text)">github.com/itertius</a>
                     </div>
                 </div>
                 <div class="stats-grid">
@@ -1029,17 +1063,27 @@
         </div>
         <div class="education-timeline fade-in">
             <div class="education-item">
-                <div class="education-year">2026 - Present</div>
-                <h3 class="education-institution">Chulalongkorn University</h3>
-                <div class="education-degree">B.Eng. Computer Engineering and Digital Technology (CEDT)</div>
-                <div class="education-degree">Year 1, Class of 2030</div>
-                <div class="education-details">Focus: Machine Learning, Computer Vision, Thai NLP</div>
+                <div class="education-content">
+                    <div class="education-year">2026 - Present</div>
+                    <h3 class="education-institution">Chulalongkorn University</h3>
+                    <div class="education-degree">B.Eng. Computer Engineering and Digital Technology (CEDT)</div>
+                    <div class="education-degree">Year 1, Class of 2030</div>
+                    <div class="education-details">Focus: Machine Learning, Computer Vision, Thai NLP</div>
+                </div>
+                <div class="education-image">
+                    <img src="assets/chula_logo.svg" alt="Chulalongkorn University Logo">
+                </div>
             </div>
             <div class="education-item">
-                <div class="education-year">High School</div>
-                <h3 class="education-institution">Saraburi Wittayakhom School</h3>
-                <div class="education-degree">High School (Math-Science Program)</div>
-                <div class="education-details">Advanced C++, data structures, competitive programming</div>
+                <div class="education-content">
+                    <div class="education-year">High School</div>
+                    <h3 class="education-institution">Saraburi Wittayakhom School</h3>
+                    <div class="education-degree">High School (Math-Science Program)</div>
+                    <div class="education-details">Advanced C++, data structures, competitive programming</div>
+                </div>
+                <div class="education-image">
+                    <img src="assets/sbw_logo.png" alt="Saraburi Wittayakhom School Logo">
+                </div>
             </div>
         </div>
     </section>
@@ -1405,7 +1449,7 @@
             </div>
             <div class="vol-item">
                 <div class="vol-title">Guest Speaker · OIC International Insurance Symposium 2025</div>
-                <div class="vol-sub"><a href="https://www.insurancesymposium.com/" target="_blank">OIC International Insurance Symposium</a></div>
+                <div class="vol-sub"><a href="https://www.insurancesymposium.com/" target="_blank" style="color: var(--text);">OIC International Insurance Symposium 2025</a></div>
                 <div class="vol-desc">Invited speaker at international insurance symposium, sharing insights on AI applications in insurance technology and innovation.</div>
             </div>
             <div class="vol-item">
@@ -1418,12 +1462,12 @@
         <div class="vol-extra-grid fade-in">
             <div class="vol-item">
                 <div class="vol-title">Open Source · GitHub Projects</div>
-                <div class="vol-sub">github.com/itertius</div>
+                <div class="vol-sub"><a href="https://github.com/itertius" target="_blank" style="color: var(--text);">github.com/itertius</a></div>
                 <div class="vol-desc">Actively contributing to open source projects and maintaining a public GitHub profile with various AI/ML implementations, tools, and research code.</div>
             </div>
             <div class="vol-item">
                 <div class="vol-title">Technical Writing · Medium Blog</div>
-                <div class="vol-sub">medium.com/@itertius</div>
+                <div class="vol-sub"><a href="https://medium.com/@itertius" target="_blank" style="color: var(--text);">medium.com/@itertius</a></div>
                 <div class="vol-desc">Writing technical articles and tutorials on AI, machine learning, and software development to share knowledge with the developer community.</div>
             </div>
         </div>
@@ -1468,7 +1512,7 @@
                 <div class="contact-item">
                     <div class="contact-label">LinkedIn</div>
                     <div class="contact-value">
-                        <a href="https://linkedin.com/in/witsanupong-kolakul" target="_blank">linkedin.com/in/witsanupong-kolakul</a>
+                        <a href="https://www.linkedin.com/in/witsanupong-kolakul-4a9784330" target="_blank">linkedin.com/in/witsanupong-kolakul</a>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -1478,8 +1522,10 @@
                     </div>
                 </div>
                 <div class="contact-item">
-                    <div class="contact-label">Line</div>
-                    <div class="contact-value">thachin28</div>
+                    <div class="contact-label">Discord</div>
+                    <div class="contact-value">
+                        iterriuste
+                    </div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-label">Location</div>

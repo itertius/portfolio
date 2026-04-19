@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Witsanupong Kolakul — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --ink: #1a1a18;
+    --ink-mid: #4a4a46;
+    --ink-light: #8a8a84;
+    --ink-faint: #c8c8c0;
+    --paper: #faf9f6;
+    --paper-warm: #f3f1eb;
+    --rule: #d8d6ce;
+    --accent: #1a1a18;
+    --accent-warm: #8b3a1a;
+    --gold: #b8960c;
+    --serif: 'EB Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250,249,246,0.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  .nav-name {
+    font-family: var(--serif);
+    font-size: 17px; letter-spacing: 0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink-mid); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 0 max(2rem, calc(50% - 580px));
+    border-bottom: 1px solid var(--rule);
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; right: -80px; top: 50%;
+    transform: translateY(-50%);
+    width: 420px; height: 420px;
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; right: 60px; top: 50%;
+    transform: translateY(-50%);
+    width: 260px; height: 260px;
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+    opacity: 0.3;
+  }
+  .hero-content { max-width: 680px; animation: fadeUp 0.9s ease both; }
+  .hero-eyebrow {
+    font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-light); margin-bottom: 1.25rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: inline-block;
+    width: 36px; height: 1px; background: var(--ink-faint);
+  }
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(44px, 7vw, 80px);
+    line-height: 1.05; font-weight: 400;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.5rem;
+  }
+  .hero-name em { font-style: italic; color: var(--ink-mid); }
+  .hero-role {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.5vw, 24px);
+    color: var(--ink-mid); font-style: italic;
+    margin-bottom: 2rem;
+  }
+  .hero-bio {
+    font-size: 15px; color: var(--ink-mid);
+    max-width: 520px; line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .btn {
+    font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; padding: 0.75rem 1.75rem;
+    border: 1px solid var(--ink); color: var(--ink);
+    transition: all 0.22s; cursor: pointer;
+    display: inline-block;
+  }
+  .btn:hover { background: var(--ink); color: var(--paper); }
+  .btn-ghost {
+    border-color: var(--rule); color: var(--ink-mid);
+  }
+  .btn-ghost:hover { background: var(--paper-warm); color: var(--ink); }
+
+  /* SECTIONS */
+  section { padding: 6rem max(2rem, calc(50% - 580px)); border-bottom: 1px solid var(--rule); }
+  .section-header { margin-bottom: 3rem; }
+  .section-number {
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ink-light); margin-bottom: 0.5rem; display: block;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 400; line-height: 1.1;
+  }
+  .section-rule {
+    width: 40px; height: 1px; background: var(--ink);
+    margin-top: 1rem;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: start;
+  }
+  .about-text p { font-size: 15px; color: var(--ink-mid); line-height: 1.85; margin-bottom: 1.25rem; }
+  .about-text p:last-child { margin-bottom: 0; }
+  .about-details { display: flex; flex-direction: column; gap: 2rem; }
+  .detail-block {}
+  .detail-label {
+    font-size: 10.5px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--ink-light); margin-bottom: 0.6rem;
+  }
+  .detail-value { font-size: 14px; color: var(--ink); line-height: 1.7; }
+  .detail-value a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .detail-value a:hover { border-color: var(--ink); }
+  .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+  .stat-block { border-top: 1px solid var(--rule); padding-top: 1rem; }
+  .stat-number {
+    font-family: var(--serif); font-size: 36px; font-weight: 400;
+    line-height: 1; margin-bottom: 0.25rem;
+  }
+  .stat-label { font-size: 11.5px; color: var(--ink-light); letter-spacing: 0.04em; }
+
+  /* EDUCATION */
+  .edu-entries { display: flex; flex-direction: column; gap: 2.5rem; }
+  .edu-entry {
+    display: grid; grid-template-columns: 120px 1fr;
+    gap: 0 2.5rem; padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .edu-entry:last-child { border-bottom: none; padding-bottom: 0; }
+  .edu-year { font-size: 12.5px; color: var(--ink-light); padding-top: 4px; }
+  .edu-inst { font-family: var(--serif); font-size: 20px; font-weight: 500; margin-bottom: 0.25rem; }
+  .edu-degree { font-size: 14px; color: var(--ink-mid); margin-bottom: 0.5rem; }
+  .edu-gpa {
+    display: inline-block; font-size: 12px; letter-spacing: 0.06em;
+    padding: 3px 10px; border: 1px solid var(--rule);
+    color: var(--ink-mid);
+  }
+
+  /* EXPERIENCE */
+  .exp-entry {
+    display: grid; grid-template-columns: 160px 1fr;
+    gap: 0 2.5rem; margin-bottom: 3rem;
+  }
+  .exp-entry:last-child { margin-bottom: 0; }
+  .exp-date { font-size: 12.5px; color: var(--ink-light); padding-top: 4px; line-height: 1.6; }
+  .exp-title { font-family: var(--serif); font-size: 20px; font-weight: 500; margin-bottom: 0.2rem; }
+  .exp-org { font-size: 13.5px; color: var(--ink-mid); font-style: italic; margin-bottom: 0.75rem; }
+  .exp-desc { font-size: 14px; color: var(--ink-mid); line-height: 1.8; }
+  .exp-desc li { margin-bottom: 0.35rem; padding-left: 1rem; position: relative; list-style: none; }
+  .exp-desc li::before { content: '—'; position: absolute; left: 0; color: var(--ink-faint); }
+
+  /* AWARDS */
+  .awards-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5px; border: 1.5px solid var(--rule);
+  }
+  .award-card {
+    padding: 1.75rem; background: var(--paper);
+    border-right: 1.5px solid var(--rule);
+    border-bottom: 1.5px solid var(--rule);
+    transition: background 0.2s;
+  }
+  .award-card:hover { background: var(--paper-warm); }
+  .award-badge {
+    font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-light); margin-bottom: 0.75rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .award-badge.gold { color: var(--gold); }
+  .award-badge.silver { color: #707878; }
+  .award-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+  .award-title { font-family: var(--serif); font-size: 17px; line-height: 1.35; margin-bottom: 0.4rem; }
+  .award-org { font-size: 12.5px; color: var(--ink-light); }
+  .award-detail { font-size: 13px; color: var(--ink-mid); margin-top: 0.5rem; line-height: 1.6; }
+
+  /* RESEARCH */
+  .research-entry {
+    border-left: 2px solid var(--ink); padding-left: 2rem;
+    margin-bottom: 3rem;
+  }
+  .research-entry:last-child { margin-bottom: 0; }
+  .research-label {
+    font-size: 10.5px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--ink-light); margin-bottom: 0.5rem;
+  }
+  .research-title { font-family: var(--serif); font-size: 22px; line-height: 1.3; margin-bottom: 0.4rem; }
+  .research-venue { font-size: 13.5px; font-style: italic; color: var(--ink-mid); margin-bottom: 1rem; }
+  .research-body { font-size: 14px; color: var(--ink-mid); line-height: 1.8; margin-bottom: 1rem; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: 11px; letter-spacing: 0.06em;
+    padding: 3px 10px; border: 1px solid var(--rule);
+    color: var(--ink-mid);
+  }
+
+  /* SKILLS */
+  .skills-layout {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+  }
+  .skill-col {}
+  .skill-col-title {
+    font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-light); padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--rule); margin-bottom: 1rem;
+  }
+  .skill-item { font-size: 14px; color: var(--ink); line-height: 1.9; }
+
+  /* VOLUNTEER */
+  .vol-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .vol-item {
+    padding: 1.5rem; border: 1px solid var(--rule);
+    transition: border-color 0.2s;
+  }
+  .vol-item:hover { border-color: var(--ink-mid); }
+  .vol-title { font-family: var(--serif); font-size: 17px; margin-bottom: 0.35rem; }
+  .vol-sub { font-size: 13px; color: var(--ink-light); }
+  .vol-desc { font-size: 13.5px; color: var(--ink-mid); margin-top: 0.6rem; line-height: 1.7; }
+
+  /* CONTACT */
+  .contact-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: start;
+  }
+  .contact-quote {
+    font-family: var(--serif); font-size: 26px; font-style: italic;
+    line-height: 1.45; color: var(--ink); margin-bottom: 1rem;
+  }
+  .contact-attr { font-size: 13px; color: var(--ink-light); }
+  .contact-items { display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-row {}
+  .contact-lbl {
+    font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-light); margin-bottom: 0.3rem;
+  }
+  .contact-val { font-size: 15px; }
+  .contact-val a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .contact-val a:hover { border-color: var(--ink); }
+
+  /* FOOTER */
+  footer {
+    padding: 2.5rem max(2rem, calc(50% - 580px));
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px; color: var(--ink-light);
+  }
+  footer a { color: var(--ink-light); text-decoration: none; }
+  footer a:hover { color: var(--ink); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { display: none; }
+    .hero { padding: 6rem 1.25rem 4rem; }
+    section { padding: 4rem 1.25rem; }
+    .about-grid, .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .edu-entry, .exp-entry { grid-template-columns: 1fr; gap: 0.25rem; }
+    .skills-layout { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .vol-grid { grid-template-columns: 1fr; }
+    .stat-row { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-name" href="#">Witsanupong Kolakul</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-content">
+    <div class="hero-eyebrow">ML Researcher &amp; Engineer · Chulalongkorn University</div>
+    <h1 class="hero-name">Witsanupong<br><em>Kolakul</em></h1>
+    <p class="hero-role">AI · Computer Vision · Thai NLP</p>
+    <p class="hero-bio">
+      Computer Engineering student with a passion for applying machine learning to real-world problems.
+      From CVPR workshop research in perceptual color science to national-level AI competitions,
+      I build systems that bridge rigorous theory and practical impact.
+    </p>
+    <div class="hero-cta">
+      <a href="#research" class="btn">View Research</a>
+      <a href="#awards" class="btn btn-ghost">Awards &amp; Projects</a>
+      <a href="mailto:teverygood@gmail.com" class="btn btn-ghost">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header reveal">
+    <span class="section-number">01</span>
+    <h2 class="section-title">About Me</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="about-grid reveal">
+    <div class="about-text">
+      <p>
+        My interest in Computer Engineering traces back to high school, where exposure to C and C++ in a Science-Math Program ignited a deeper passion for algorithmic thinking. What began as a small elective became the foundation for everything I pursue today.
+      </p>
+      <p>
+        I am particularly drawn to Artificial Intelligence — especially Machine Learning, Deep Learning, and Computer Vision. I aim to develop both theoretical depth and hands-on proficiency: from mathematical foundations and algorithm design to large-scale model training and deployment.
+      </p>
+      <p>
+        After completing my degree, I plan to pursue a Master's or Doctoral program abroad in Artificial Intelligence, with a long-term goal of contributing to research and innovation that meaningfully improves quality of life.
+      </p>
+    </div>
+    <div class="about-details">
+      <div class="detail-block">
+        <div class="detail-label">Full Name</div>
+        <div class="detail-value">Witsanupong Kolakul (วิษณุพงศ์ โกลากุล)</div>
+      </div>
+      <div class="detail-block">
+        <div class="detail-label">Nickname</div>
+        <div class="detail-value">Tete (เตเต้)</div>
+      </div>
+      <div class="detail-block">
+        <div class="detail-label">Date of Birth</div>
+        <div class="detail-value">28 February 2551 (2008)</div>
+      </div>
+      <div class="detail-block">
+        <div class="detail-label">Location</div>
+        <div class="detail-value">63 M.6 Huai Pa Wai, Phra Phutthabat, Saraburi 18120</div>
+      </div>
+      <div class="detail-block">
+        <div class="detail-label">Contact</div>
+        <div class="detail-value">
+          <a href="tel:0994090950">099 409 0950</a><br>
+          <a href="mailto:teverygood@gmail.com">teverygood@gmail.com</a><br>
+          GitHub: <a href="https://github.com/itertius" target="_blank">itertius</a> · Instagram: <a href="#" target="_blank">iterrius_te</a>
+        </div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-block">
+          <div class="stat-number">3.61</div>
+          <div class="stat-label">GPAX (ม.ปลาย)</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-number">5+</div>
+          <div class="stat-label">National Awards</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-number">2+</div>
+          <div class="stat-label">Years Research</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header reveal">
+    <span class="section-number">02</span>
+    <h2 class="section-title">Education</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="edu-entries">
+    <div class="edu-entry reveal">
+      <div class="edu-year">2020 – Present</div>
+      <div>
+        <div class="edu-inst">King Mongkut's University of Technology Thonburi</div>
+        <div class="edu-degree">B.Eng. Computer Engineering (International Program · CEDT)</div>
+        <div class="edu-degree" style="color: var(--ink-light); font-size: 13px; margin-top: 0.25rem;">โครงการคัดเลือกตรงความสามารถพิเศษ และทุนเพชรพระจอมเกล้า ด้านความสามารถพิเศษ ความคิดสร้างสรรค์และนวัตกรรม</div>
+        <div style="margin-top: 0.6rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <span class="edu-gpa">Focus: ML · CV · NLP</span>
+        </div>
+      </div>
+    </div>
+    <div class="edu-entry reveal">
+      <div class="edu-year">มัธยมตอนต้น<br>GPA 3.69</div>
+      <div>
+        <div class="edu-inst">Saraburi Wittayakhom School</div>
+        <div class="edu-degree">Middle School (ระดับมัธยมศึกษาตอนต้น) — Science-Math Program</div>
+        <div class="edu-degree" style="margin-top: 0.35rem; font-size: 13px; color: var(--ink-light);">Foundations in C / C++, algorithmic problem solving</div>
+      </div>
+    </div>
+    <div class="edu-entry reveal">
+      <div class="edu-year">มัธยมตอนปลาย<br>GPAX 3.61</div>
+      <div>
+        <div class="edu-inst">Saraburi Wittayakhom School</div>
+        <div class="edu-degree">High School (ระดับมัธยมศึกษาตอนปลาย) — Science-Math Program</div>
+        <div class="edu-degree" style="margin-top: 0.35rem; font-size: 13px; color: var(--ink-light);">Advanced C++, data structures, competitive programming</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-header reveal">
+    <span class="section-number">03</span>
+    <h2 class="section-title">Research &amp; Internship</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="research-entry reveal">
+    <div class="research-label">Workshop Paper · CVPR 2026</div>
+    <div class="research-title">UColor: Advanced Seasonal Color Analysis for Perceptually-Aware Image Classification</div>
+    <div class="research-venue">CVPR 2026 · FGVC Workshop Submission</div>
+    <p class="research-body">
+      UColor addresses a fundamental gap in Computer Vision: current models perceive color in RGB without understanding human color perception. The project proposes a two-stage architecture using FaRL backbone with a hybrid perceptual loss (Cross-Entropy + CIEDE2000 ΔE) to classify Seasonal Colors (Spring, Summer, Autumn, Winter) in a perceptually-aware manner — outperforming Stacchio et al. at fewer training epochs.
+    </p>
+    <p class="research-body">
+      Research directions: Hierarchical Classification (Warm/Cool → Seasonal), Perceptual-Aware Learning with CIELAB color space, Color Branch Network, and Advanced Evaluation via ΔE distribution and class separability.
+    </p>
+    <div class="tag-row">
+      <span class="tag">Computer Vision</span><span class="tag">Color Science</span>
+      <span class="tag">FaRL</span><span class="tag">CIEDE2000</span>
+      <span class="tag">CIELAB</span><span class="tag">PyTorch</span><span class="tag">Perceptual Loss</span>
+    </div>
+  </div>
+
+  <div class="research-entry reveal" style="margin-top: 3rem;">
+    <div class="research-label">Internship · Dec 2025 – Feb 2026 (2 months)</div>
+    <div class="research-title">AI Research Assistant</div>
+    <div class="research-venue">Uphasia Artificial Intelligence Co., Ltd. (ยูพาเซีย อาร์ทิฟิเชียล อินเทลลิเจนซ์ จำกัด)</div>
+    <ul class="research-body" style="list-style: none;">
+      <li style="padding-left: 1.25rem; position: relative; margin-bottom: 0.4rem;"><span style="position:absolute;left:0;color:var(--ink-faint);">—</span>Researched and developed Computer Vision and Color Analysis models</li>
+      <li style="padding-left: 1.25rem; position: relative; margin-bottom: 0.4rem;"><span style="position:absolute;left:0;color:var(--ink-faint);">—</span>Applied Color Science principles: CIELAB color space and CIEDE2000 metric</li>
+      <li style="padding-left: 1.25rem; position: relative; margin-bottom: 0.4rem;"><span style="position:absolute;left:0;color:var(--ink-faint);">—</span>Developed and tested Deep Learning models for Seasonal Color classification</li>
+      <li style="padding-left: 1.25rem; position: relative; margin-bottom: 0.4rem;"><span style="position:absolute;left:0;color:var(--ink-faint);">—</span>Designed perceptual-aware loss functions and analyzed technical experiment results</li>
+    </ul>
+    <div class="tag-row">
+      <span class="tag">Deep Learning</span><span class="tag">Color Analysis</span>
+      <span class="tag">CIELAB</span><span class="tag">Loss Function Design</span><span class="tag">Research Documentation</span>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS & PROJECTS -->
+<section id="awards">
+  <div class="section-header reveal">
+    <span class="section-number">04</span>
+    <h2 class="section-title">Awards &amp; Projects</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="awards-grid reveal">
+
+    <div class="award-card">
+      <div class="award-badge gold"><span class="award-dot"></span>Deployment Award · 1st in Thailand</div>
+      <div class="award-title">Thailand CANSAT – ROCKET Competition 2025</div>
+      <div class="award-org">NSM · Defence Technology Institute · 104 teams → 20 teams → Award</div>
+      <div class="award-detail">Project Manager &amp; Software Engineer. Developed Ground Station, Flight Software, and Deployment Software. Team won the Deployment Award — the only team in Thailand with this system design.</div>
+    </div>
+
+    <div class="award-card">
+      <div class="award-badge silver"><span class="award-dot"></span>Silver Medal · 2nd Runner-Up</div>
+      <div class="award-title">Thailand AI Engineering Championship 2025</div>
+      <div class="award-org">CMKL University · AST · 800+ participants → 26 finalists</div>
+      <div class="award-detail">Topics: KNN, K-Means Clustering, DAG Scheduling. Scored 90/300. Intensive 2-month preparation. Awarded Silver Medal by CMKL University.</div>
+    </div>
+
+    <div class="award-card">
+      <div class="award-badge silver"><span class="award-dot"></span>2nd Place · รองชนะเลิศอันดับ 1</div>
+      <div class="award-title">OIC InsureTech Award 2025</div>
+      <div class="award-org">Center of InsureTech Thailand · 400+ teams → 80 → 10 → 2nd</div>
+      <div class="award-detail">"InsureMate" — AI app for insurance literacy. Built InsureMatch (recommendation), InsureRead (summarizer), InsureChat (copilot) using ML and NLP/LLM. Prize: ฿70,000.</div>
+    </div>
+
+    <div class="award-card">
+      <div class="award-badge silver"><span class="award-dot"></span>ROCKET Consolation Award</div>
+      <div class="award-title">Thailand CANSAT – ROCKET Competition 2024</div>
+      <div class="award-org">NSM · 100 teams → 15 teams</div>
+      <div class="award-detail">Software Engineer for Ground Station and Flight Software on Raspberry Pi Zero 2W (C++). Recovered from hardware failure using ESP32. Won ROCKET Consolation Award.</div>
+    </div>
+
+    <div class="award-card">
+      <div class="award-badge"><span class="award-dot"></span>ปัญญาประดิษฐ์ดีเด่น · Outstanding AI Award</div>
+      <div class="award-title">AI Builders 5 — Tomato Disease Classification</div>
+      <div class="award-org">Mahidol University · Central Retail Digital · 500+ → 50 → Outstanding</div>
+      <div class="award-detail">Developed Edge Contour Detection to separate plant from background. Tackled data imbalance and real-world noise. Mentored by Majectic Eagles team. Received Outstanding AI Award.</div>
+    </div>
+
+    <div class="award-card">
+      <div class="award-badge silver"><span class="award-dot"></span>2nd Runner-Up · UNICEF</div>
+      <div class="award-title">DeafTech Hackathon 2024</div>
+      <div class="award-org">UNICEF Thailand</div>
+      <div class="award-detail">"ThaiSign Application" — teaches Thai sign language using Mediapipe + MobileNetV2. Designed with UX/UI accessibility focus for hearing-impaired users.</div>
+    </div>
+
+    <div class="award-card">
+      <div class="award-badge"><span class="award-dot"></span>Semi-Finalist (Top 20)</div>
+      <div class="award-title">Thailand Metaverse Hackathon &amp; Exhibition #1</div>
+      <div class="award-org">Chulalongkorn Engineering · 2025</div>
+      <div class="award-detail">Project Manager &amp; Full-Stack Developer. Built VR app for OCD Exposure Therapy using Unity, React Native, and Node.js. Advanced to Semi-Final (top 20 teams).</div>
+    </div>
+
+    <div class="award-card">
+      <div class="award-badge"><span class="award-dot"></span>Rank 23 / 130 teams</div>
+      <div class="award-title">SPU AI PROMPT Mini Hackathon 2025</div>
+      <div class="award-org">SPU SIT · NECTEC · AiAT</div>
+      <div class="award-detail">EDA, data cleaning, and AutoGluon model training for prompt quest challenge. Top quartile performance in competitive field.</div>
+    </div>
+
+    <div class="award-card">
+      <div class="award-badge"><span class="award-dot"></span>Participant (Top 25 / 70 teams)</div>
+      <div class="award-title">AI Thailand Hackathon 2025</div>
+      <div class="award-org">NECTEC · AI Thailand · NSTDA</div>
+      <div class="award-detail">"Brisket Powerlift" — Powerlifting form analysis app using Mediapipe for posture detection and Pathumma LLM for Thai coaching advice via VAJA Text-to-Speech.</div>
+    </div>
+
+    <div class="award-card">
+      <div class="award-badge"><span class="award-dot"></span>National Computer Olympiad (สอวน.)</div>
+      <div class="award-title">สอวน. Computer Olympiad — Camp 1 &amp; Camp 2</div>
+      <div class="award-org">Chulalongkorn University · 2023</div>
+      <div class="award-detail">Passed Camp 1 (C++ fundamentals, OOP, Functions) and advanced to Camp 2 (Data Structures: Stack, Queue, Tree, Graph; Algorithms: BFS, DFS, Sorting, Dynamic Programming).</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header reveal">
+    <span class="section-number">05</span>
+    <h2 class="section-title">Skills &amp; Technologies</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="skills-layout reveal">
+    <div class="skill-col">
+      <div class="skill-col-title">Machine Learning</div>
+      <div class="skill-item">PyTorch</div>
+      <div class="skill-item">TensorFlow</div>
+      <div class="skill-item">Scikit-learn</div>
+      <div class="skill-item">AutoGluon</div>
+      <div class="skill-item">Optuna (HPO)</div>
+      <div class="skill-item">XGBoost</div>
+    </div>
+    <div class="skill-col">
+      <div class="skill-col-title">Computer Vision</div>
+      <div class="skill-item">FaRL · CLIP</div>
+      <div class="skill-item">OpenCV</div>
+      <div class="skill-item">Mediapipe</div>
+      <div class="skill-item">EasyOCR</div>
+      <div class="skill-item">Tesseract</div>
+      <div class="skill-item">Pillow · ImageIO</div>
+    </div>
+    <div class="skill-col">
+      <div class="skill-col-title">Languages &amp; Frameworks</div>
+      <div class="skill-item">Python</div>
+      <div class="skill-item">C / C++</div>
+      <div class="skill-item">React · Vue.js</div>
+      <div class="skill-item">Node.js</div>
+      <div class="skill-item">NumPy · Pandas</div>
+      <div class="skill-item">Matplotlib · Plotly</div>
+    </div>
+    <div class="skill-col">
+      <div class="skill-col-title">Tools &amp; Platforms</div>
+      <div class="skill-item">Google Colab</div>
+      <div class="skill-item">Kaggle</div>
+      <div class="skill-item">Git · GitHub</div>
+      <div class="skill-item">Figma · Arduino</div>
+      <div class="skill-item">Unity · Android Studio</div>
+      <div class="skill-item">LaTeX</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 3rem;" class="reveal">
+    <div class="section-rule" style="margin-bottom: 2rem;"></div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+      <div>
+        <div class="skill-col-title">NLP &amp; LLMs</div>
+        <div class="skill-item">Thai NLP · BM25 · TF-IDF</div>
+        <div class="skill-item">RAG Pipelines</div>
+        <div class="skill-item">Typhoon · OpenThaiGPT</div>
+        <div class="skill-item">Pathumma · VAJA TTS</div>
+      </div>
+      <div>
+        <div class="skill-col-title">Soft Skills</div>
+        <div class="skill-item">Communication</div>
+        <div class="skill-item">Leadership</div>
+        <div class="skill-item">Networking</div>
+        <div class="skill-item">Problem Solving · Time Mgmt</div>
+      </div>
+      <div>
+        <div class="skill-col-title">Languages</div>
+        <div class="skill-item">Thai — Native</div>
+        <div class="skill-item">English — Professional</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOLUNTEER -->
+<section id="volunteer">
+  <div class="section-header reveal">
+    <span class="section-number">06</span>
+    <h2 class="section-title">Volunteer &amp; Leadership</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="vol-grid reveal">
+    <div class="vol-item">
+      <div class="vol-title">ประธานคณะสีเหลือง (Yellow House President)</div>
+      <div class="vol-sub">Saraburi Wittayakhom School · Academic Year 2567</div>
+      <div class="vol-desc">Led the Yellow House (คณะสีเหลือง) with 122 members in school activities across the 29–30 September 2567 games week.</div>
+    </div>
+    <div class="vol-item">
+      <div class="vol-title">ผู้ช่วยวิทยากร สอวน. คอมพิวเตอร์ (TA)</div>
+      <div class="vol-sub">Computer Olympiad Training Camp</div>
+      <div class="vol-desc">Teaching assistant for สอวน. Computer Camp — supporting students learning algorithms, data structures, and competitive programming in C++.</div>
+    </div>
+    <div class="vol-item">
+      <div class="vol-title">รด. จิตอาสา (Reserve Officer Volunteer)</div>
+      <div class="vol-sub">กิจกรรมด้านจิตอาสา</div>
+      <div class="vol-desc">Participated in national reserve officer volunteer activities, contributing to community service and civic engagement programs.</div>
+    </div>
+    <div class="vol-item">
+      <div class="vol-title">ผู้ช่วยวิทยากร จรวดขวดน้ำ (Water Rocket TA)</div>
+      <div class="vol-sub">Science Activity Volunteer</div>
+      <div class="vol-desc">Teaching assistant for water rocket workshop — supporting younger students in hands-on STEM learning activities.</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 2.5rem;" class="reveal">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+      <div class="vol-item">
+        <div class="vol-title">Open Source — GitHub Projects</div>
+        <div class="vol-sub">github.com/itertius</div>
+        <div class="vol-desc">Shares ML projects, competition notebooks, and research code publicly for the community.</div>
+      </div>
+      <div class="vol-item">
+        <div class="vol-title">Technical Blog — Medium</div>
+        <div class="vol-sub">Witsanupong Kolakul — Majectic Eagles Ltd</div>
+        <div class="vol-desc">Writes technical articles on ML topics — including "Tomato Disease Classification" — to share knowledge with fellow enthusiasts.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header reveal">
+    <span class="section-number">07</span>
+    <h2 class="section-title">Contact</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="contact-inner reveal">
+    <div>
+      <div class="contact-quote">
+        "A person who never made a mistake never tried anything new."
+      </div>
+      <div class="contact-attr">— Albert Einstein</div>
+      <p style="margin-top: 2rem; font-size: 14px; color: var(--ink-mid); line-height: 1.8; max-width: 400px;">
+        I'm always open to research collaborations, internship opportunities, and interesting conversations about AI and technology. Feel free to reach out.
+      </p>
+    </div>
+    <div class="contact-items">
+      <div class="contact-row">
+        <div class="contact-lbl">Email</div>
+        <div class="contact-val"><a href="mailto:teverygood@gmail.com">teverygood@gmail.com</a></div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-lbl">Phone</div>
+        <div class="contact-val"><a href="tel:0994090950">099 409 0950</a></div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-lbl">GitHub</div>
+        <div class="contact-val"><a href="https://github.com/itertius" target="_blank">github.com/itertius</a></div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-lbl">Instagram</div>
+        <div class="contact-val"><a href="#" target="_blank">@iterrius_te</a></div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-lbl">Line</div>
+        <div class="contact-val">thachin28</div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-lbl">Location</div>
+        <div class="contact-val">Saraburi · Bangkok, Thailand</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Witsanupong Kolakul</span>
+  <span>Built with care · <a href="#top">↑ Back to top</a></span>
+</footer>
+
+<script>
+  // Intersection Observer for reveal animations
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Smooth active nav highlighting
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 80) current = s.getAttribute('id');
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--ink)' : '';
+    });
+  });
+</script>
+
+</body>
+</html>
