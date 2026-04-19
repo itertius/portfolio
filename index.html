@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Witsanupong Kolakul Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f0f0f;
+            --secondary: #666;
+            --accent: #2563eb;
+            --background: #ffffff;
+            --surface: #fafafa;
+            --border: #e5e5e5;
+            --text-primary: #0f0f0f;
+            --text-secondary: #666;
+            --text-muted: #999;
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-sans: 'Inter', system-ui, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-name {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a.active {
+            color: var(--text-primary);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            background: linear-gradient(135deg, var(--background) 0%, var(--surface) 100%);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-subtitle {
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .hero-title span {
+            color: var(--accent);
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            border: 2px solid var(--accent);
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            border-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--surface);
+            border-color: var(--text-secondary);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-number {
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-details {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .detail-item {
+            padding: 1.5rem;
+            background: var(--surface);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .detail-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-value {
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+
+        .detail-value a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .detail-value a:hover {
+            text-decoration: underline;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--surface);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .stat-number {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 500;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Education Section */
+        .education-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .education-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+        }
+
+        .education-year {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            padding-top: 0.5rem;
+        }
+
+        .education-content h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-degree {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-details {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--surface);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent);
+        }
+
+        .project-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--accent);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+        }
+
+        .project-badge.gold {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+        }
+
+        .project-badge.silver {
+            background: linear-gradient(135deg, #9ca3af, #6b7280);
+        }
+
+        .project-title {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-organization {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Research Section */
+        .research-item {
+            background: var(--surface);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .research-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--accent);
+            border-radius: 2px 0 0 2px;
+        }
+
+        .research-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .research-title {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .research-venue {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .research-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .research-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            padding: 0.25rem 0.75rem;
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--surface);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            padding: 2rem;
+        }
+
+        .skill-category h3 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .skill-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .skill-item {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .skill-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-text {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            min-width: 80px;
+        }
+
+        .contact-value {
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+
+        .contact-value a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .contact-value a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-text {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .education-item {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            section {
+                padding: 4rem 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="nav-name">Witsanupong Kolakul</a>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#research" class="nav-link">Research</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-subtitle">ML Researcher & Engineer</div>
+            <h1 class="hero-title">Witsanupong <span>Kolakul</span></h1>
+            <p class="hero-description">
+                Computer Engineering student focused on research and development in AI, Computer Vision, and Thai NLP. 
+                Building systems that bridge theoretical depth with practical impact.
+            </p>
+            <div class="hero-actions">
+                <a href="#research" class="btn btn-primary">View Research</a>
+                <a href="#projects" class="btn btn-secondary">Projects & Awards</a>
+                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header fade-in">
+            <div class="section-number">01</div>
+            <h2 class="section-title">About Me</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="about-content fade-in">
+            <div class="about-text">
+                <p>
+                    My journey in Computer Engineering began in high school with C and C++ in a Science-Math Program, 
+                    sparking a passion for algorithmic thinking that continues to drive my work today.
+                </p>
+                <p>
+                    I'm particularly drawn to Artificial Intelligence, especially Machine Learning, Deep Learning, 
+                    and Computer Vision. I aim to develop both theoretical depth and hands-on proficiency, from 
+                    mathematical foundations to large-scale model deployment.
+                </p>
+                <p>
+                    After completing my degree, I plan to pursue graduate studies abroad in AI, with the long-term 
+                    goal of contributing to research and innovation that meaningfully improves quality of life.
+                </p>
+            </div>
+            <div class="about-details">
+                <div class="detail-item">
+                    <div class="detail-label">Full Name</div>
+                    <div class="detail-value">Witsanupong Kolakul (wichanupong kolakul)</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Nickname</div>
+                    <div class="detail-value">Tete</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Contact</div>
+                    <div class="detail-value">
+                        <a href="mailto:teverygood@gmail.com">teverygood@gmail.com</a><br>
+                        <a href="tel:0994090950">099 409 0950</a><br>
+                        <a href="https://github.com/itertius" target="_blank">github.com/itertius</a>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">3.61</div>
+                        <div class="stat-label">High School GPA</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">National Awards</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2+</div>
+                        <div class="stat-label">Years Research</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="section-header fade-in">
+            <div class="section-number">02</div>
+            <h2 class="section-title">Education</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="education-timeline fade-in">
+            <div class="education-item">
+                <div class="education-year">2026 - Present</div>
+                <div class="education-content">
+                    <h3>Chulalongkorn University</h3>
+                    <div class="education-degree">B.Eng. Computer Engineering and Digital Technology (CEDT)</div>
+                    <div class="education-degree">Year 1, Class of 2030</div>
+                    <div class="education-details">Focus: Machine Learning, Computer Vision, Thai NLP</div>
+                </div>
+            </div>
+            <div class="education-item">
+                <div class="education-year">2020 - 2025</div>
+                <div class="education-content">
+                    <h3>Saraburi Wittayakhom School</h3>
+                    <div class="education-degree">High School - Science-Math Program</div>
+                    <div class="education-details">GPAX 3.61 | Advanced C++, Data Structures, Competitive Programming</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-header fade-in">
+            <div class="section-number">03</div>
+            <h2 class="section-title">Projects & Competitions</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="projects-grid fade-in">
+            <div class="project-card">
+                <div class="project-badge gold">1st in Thailand</div>
+                <h3 class="project-title">Thailand CANSAT - ROCKET Competition 2025</h3>
+                <div class="project-organization">NSM · Defence Technology Institute · 104 teams</div>
+                <p class="project-description">
+                    Project Manager & Software Engineer. Developed Ground Station, Flight Software, and Deployment Software. 
+                    Won Deployment Award as the only team in Thailand with this system design.
+                </p>
+            </div>
+            <div class="project-card">
+                <div class="project-badge silver">Silver Medal</div>
+                <h3 class="project-title">Thailand AI Engineering Championship 2025</h3>
+                <div class="project-organization">CMKL University · AST · 800+ participants</div>
+                <p class="project-description">
+                    Topics: KNN, K-Means Clustering, DAG Scheduling. Scored 90/300. Intensive 2-month preparation. 
+                    Awarded Silver Medal by CMKL University.
+                </p>
+            </div>
+            <div class="project-card">
+                <div class="project-badge silver">2nd Runner-Up</div>
+                <h3 class="project-title">OIC InsureTech Award 2025</h3>
+                <div class="project-organization">Center of InsureTech Thailand · 400+ teams</div>
+                <p class="project-description">
+                    "InsureMate" - AI app for insurance literacy with ML and NLP/LLM features. Prize: 70,000 THB.
+                </p>
+            </div>
+            <div class="project-card">
+                <div class="project-badge">Outstanding AI</div>
+                <h3 class="project-title">AI Builders 5 - Tomato Disease Classification</h3>
+                <div class="project-organization">Mahidol University · Central Retail Digital</div>
+                <p class="project-description">
+                    Developed Edge Contour Detection for plant separation. Tackled data imbalance and real-world noise. 
+                    Received Outstanding AI Award.
+                </p>
+            </div>
+            <div class="project-card">
+                <div class="project-badge silver">2nd Runner-Up</div>
+                <h3 class="project-title">DeafTech Hackathon 2024</h3>
+                <div class="project-organization">UNICEF Thailand</div>
+                <p class="project-description">
+                    "ThaiSign Application" - teaches Thai sign language using Mediapipe + MobileNetV2. 
+                    Designed with UX/UI accessibility focus.
+                </p>
+            </div>
+            <div class="project-card">
+                <div class="project-badge">Semi-Finalist</div>
+                <h3 class="project-title">Thailand Metaverse Hackathon #1</h3>
+                <div class="project-organization">Chulalongkorn Engineering</div>
+                <p class="project-description">
+                    Project Manager & Full-Stack Developer. Built VR app for OCD Exposure Therapy using Unity, 
+                    React Native, and Node.js. Advanced to top 20 teams.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research">
+        <div class="section-header fade-in">
+            <div class="section-number">04</div>
+            <h2 class="section-title">Research & Publications</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="fade-in">
+            <div class="research-item">
+                <div class="research-label">Workshop Paper · FGVC2026</div>
+                <h3 class="research-title">UColor: Advanced Seasonal Color Analysis for Perceptually-Aware Image Classification</h3>
+                <div class="research-venue">FGVC2026 Workshop · Non-archival 4-pages submission</div>
+                <p class="research-description">
+                    UColor addresses a fundamental gap in Computer Vision: current models perceive color in RGB 
+                    without understanding human color perception. The project proposes a two-stage architecture 
+                    using FaRL backbone with a hybrid perceptual loss (Cross-Entropy + CIEDE2000) to classify 
+                    Seasonal Colors in a perceptually-aware manner.
+                </p>
+                <p class="research-description">
+                    Research directions: Hierarchical Classification, Perceptual-Aware Learning with CIELAB color space, 
+                    Color Branch Network, and Advanced Evaluation via distribution analysis.
+                </p>
+                <div class="research-tags">
+                    <span class="tag">Computer Vision</span>
+                    <span class="tag">Color Science</span>
+                    <span class="tag">FaRL</span>
+                    <span class="tag">CIEDE2000</span>
+                    <span class="tag">CIELAB</span>
+                    <span class="tag">PyTorch</span>
+                    <span class="tag">Perceptual Loss</span>
+                </div>
+            </div>
+            <div class="research-item">
+                <div class="research-label">Internship · Dec 2025 - Feb 2026</div>
+                <h3 class="research-title">AI Research Assistant</h3>
+                <div class="research-venue">Uphasia Artificial Intelligence Co., Ltd.</div>
+                <p class="research-description">
+                    Researched and developed Computer Vision and Color Analysis models. Applied Color Science 
+                    principles: CIELAB color space and CIEDE2000 metric. Developed Deep Learning models for 
+                    Seasonal Color classification and designed perceptual-aware loss functions.
+                </p>
+                <div class="research-tags">
+                    <span class="tag">Deep Learning</span>
+                    <span class="tag">Color Analysis</span>
+                    <span class="tag">CIELAB</span>
+                    <span class="tag">Loss Function Design</span>
+                    <span class="tag">Research Documentation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-header fade-in">
+            <div class="section-number">05</div>
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="skills-grid fade-in">
+            <div class="skill-category">
+                <h3>Machine Learning</h3>
+                <div class="skill-list">
+                    <div class="skill-item">PyTorch</div>
+                    <div class="skill-item">TensorFlow</div>
+                    <div class="skill-item">Scikit-learn</div>
+                    <div class="skill-item">AutoGluon</div>
+                    <div class="skill-item">Optuna (HPO)</div>
+                    <div class="skill-item">XGBoost</div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Computer Vision</h3>
+                <div class="skill-list">
+                    <div class="skill-item">FaRL · CLIP</div>
+                    <div class="skill-item">OpenCV</div>
+                    <div class="skill-item">Mediapipe</div>
+                    <div class="skill-item">EasyOCR</div>
+                    <div class="skill-item">Tesseract</div>
+                    <div class="skill-item">Pillow · ImageIO</div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Languages & Frameworks</h3>
+                <div class="skill-list">
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">C / C++</div>
+                    <div class="skill-item">React · Vue.js</div>
+                    <div class="skill-item">Node.js</div>
+                    <div class="skill-item">NumPy · Pandas</div>
+                    <div class="skill-item">Matplotlib · Plotly</div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Tools & Platforms</h3>
+                <div class="skill-list">
+                    <div class="skill-item">Google Colab</div>
+                    <div class="skill-item">Kaggle</div>
+                    <div class="skill-item">Git · GitHub</div>
+                    <div class="skill-item">Figma · Arduino</div>
+                    <div class="skill-item">Unity · Android Studio</div>
+                    <div class="skill-item">LaTeX</div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>NLP & LLMs</h3>
+                <div class="skill-list">
+                    <div class="skill-item">Thai NLP · BM25 · TF-IDF</div>
+                    <div class="skill-item">RAG Pipelines</div>
+                    <div class="skill-item">Typhoon · OpenThaiGPT</div>
+                    <div class="skill-item">Pathumma · VAJA TTS</div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Soft Skills</h3>
+                <div class="skill-list">
+                    <div class="skill-item">Communication</div>
+                    <div class="skill-item">Leadership</div>
+                    <div class="skill-item">Networking</div>
+                    <div class="skill-item">Problem Solving · Time Management</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header fade-in">
+            <div class="section-number">06</div>
+            <h2 class="section-title">Contact</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="contact-content fade-in">
+            <div class="contact-text">
+                <p>
+                    I'm always open to research collaborations, internship opportunities, and interesting conversations 
+                    about AI and technology. Feel free to reach out if you'd like to discuss potential projects or 
+                    just connect about shared interests in machine learning and computer vision.
+                </p>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value">
+                        <a href="mailto:teverygood@gmail.com">teverygood@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">Phone</div>
+                    <div class="contact-value">
+                        <a href="tel:0994090950">099 409 0950</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">GitHub</div>
+                    <div class="contact-value">
+                        <a href="https://github.com/itertius" target="_blank">github.com/itertius</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">LinkedIn</div>
+                    <div class="contact-value">
+                        <a href="#" target="_blank">Coming Soon</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">Location</div>
+                    <div class="contact-value">Saraburi · Bangkok, Thailand</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-text">© 2026 Witsanupong Kolakul</div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="https://github.com/itertius" target="_blank">GitHub</a>
+                <a href="#top">Back to Top</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Active navigation highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add some subtle parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
