@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Witsanupong Kolakul · ML Researcher & CEDT Student</title>
-    <meta name="description" content="Witsanupong Kolakul - Machine Learning Researcher & CEDT Student at Chulalongkorn University. Specializing in Computer Vision, Thai NLP, and AI research with 8+ national awards and 10+ GitHub projects.">
-    <meta property="og:title" content="Witsanupong Kolakul · ML Researcher & CEDT Student">
-    <meta property="og:description" content="Machine Learning Researcher & CEDT Student specializing in Computer Vision, Thai NLP, and AI research.">
+    <title>Witsanupong Kolakul · AI Engineer & Researcher</title>
+    <meta name="description" content="Witsanupong Kolakul - AI Engineer & Researcher. Specializing in Computer Vision, Thai NLP, and AI research with 8+ national awards and 10+ GitHub projects.">
+    <meta property="og:title" content="Witsanupong Kolakul · AI Engineer & Researcher">
+    <meta property="og:description" content="AI Engineer & Researcher specializing in Computer Vision, Thai NLP, and AI research.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://itertius.github.io/portfolio/">
     <meta property="og:image" content="https://itertius.github.io/portfolio/og-image.jpg">
     <meta property="og:site_name" content="Witsanupong Kolakul Portfolio">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Witsanupong Kolakul · ML Researcher & CEDT Student">
-    <meta name="twitter:description" content="Machine Learning Researcher & CEDT Student specializing in Computer Vision, Thai NLP, and AI research.">
+    <meta name="twitter:title" content="Witsanupong Kolakul · AI Engineer & Researcher">
+    <meta name="twitter:description" content="AI Engineer & Researcher specializing in Computer Vision, Thai NLP, and AI research.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
     <style>
@@ -58,15 +58,11 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
+            background: var(--surface);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
             padding: 1rem 2rem;
             transition: all 0.3s ease;
-        }
-
-        [data-theme="dark"] nav {
-            background: rgba(26, 26, 26, 0.95);
         }
 
         .nav-container {
@@ -124,7 +120,7 @@
             display: flex;
             align-items: center;
             padding: 0 2rem;
-            background: linear-gradient(135deg, var(--background) 0%, var(--surface) 100%);
+            background: transparent;
         }
 
         .hero-container {
@@ -558,6 +554,7 @@
             box-shadow: 0 2px 8px rgba(205, 127, 50, 0.3);
         }
 
+        
         .project-title {
             font-family: var(--font-serif);
             font-size: 1.25rem;
@@ -799,13 +796,101 @@
         }
 
         .footer-links a {
-            color: var(--text-muted);
+            color: var(--text-secondary);
             text-decoration: none;
-            transition: color 0.2s ease;
+            transition: color 0.3s ease;
         }
 
         .footer-links a:hover {
             color: var(--accent);
+        }
+
+        /* Gimmicks */
+        .typing-effect {
+            border-right: 3px solid var(--accent);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { border-color: var(--accent); }
+            51%, 100% { border-color: transparent; }
+        }
+
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0.2; /* Reduced opacity */
+            will-change: transform; /* Hardware acceleration */
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-15px) rotate(120deg); } /* Reduced movement */
+            66% { transform: translateY(8px) rotate(240deg); } /* Reduced movement */
+        }
+
+        .glow-effect {
+            transition: all 0.3s ease;
+        }
+
+        .glow-effect:hover {
+            box-shadow: 0 0 20px rgba(74, 158, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .cursor-trail {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.4; /* Reduced opacity */
+            will-change: transform; /* Hardware acceleration */
+        }
+
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.1;
+            font-family: monospace;
+            font-size: 14px;
+            color: var(--accent);
+            overflow: hidden;
+        }
+
+        .tech-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent), #6366f1);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin: 0.25rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         /* Responsive Design */
@@ -943,50 +1028,54 @@
             transform: translateX(0);
         }
 
-            </style>
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="#home" class="nav-name">Witsanupong Kolakul</a>
-            <ul class="nav-links">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#competitions" class="nav-link">Awards</a></li>
-                <li><a href="#research" class="nav-link">Research</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#volunteer" class="nav-link">Volunteer</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="5"/>
-                    <line x1="12" y1="1" x2="12" y2="3"/>
-                    <line x1="12" y1="21" x2="12" y2="23"/>
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                    <line x1="1" y1="12" x2="3" y2="12"/>
-                    <line x1="21" y1="12" x2="23" y2="12"/>
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-                </svg>
-                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                </svg>
-            </button>
-        </div>
-    </nav>
+<!-- Interactive Gimmicks -->
+<div class="floating-particles" id="particles"></div>
+<div class="cursor-trail" id="cursorTrail"></div>
+<div class="matrix-rain" id="matrixRain"></div>
+<!-- Navigation -->
+<nav>
+<div class="nav-container">
+<a href="#home" class="nav-name">Witsanupong K.</a>
+<ul class="nav-links">
+<li><a href="#about" class="nav-link">About</a></li>
+<li><a href="#education" class="nav-link">Education</a></li>
+<li><a href="#projects" class="nav-link">Projects</a></li>
+<li><a href="#competitions" class="nav-link">Awards</a></li>
+<li><a href="#research" class="nav-link">Research</a></li>
+<li><a href="#skills" class="nav-link">Skills</a></li>
+<li><a href="#volunteer" class="nav-link">Volunteer</a></li>
+<li><a href="#contact" class="nav-link">Contact</a></li>
+</ul>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+<svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="5"/>
+<line x1="12" y1="1" x2="12" y2="3"/>
+<line x1="12" y1="21" x2="12" y2="23"/>
+<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+<line x1="1" y1="12" x2="3" y2="12"/>
+<line x1="21" y1="12" x2="23" y2="12"/>
+<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+</svg>
+<svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+</svg>
+</button>
+</div>
+</nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-container">
-            <div class="hero-subtitle">ML Researcher & Engineer</div>
+            <div class="hero-subtitle">AI Engineer & Researcher</div>
             <h1 class="hero-title">Witsanupong <span>Kolakul</span></h1>
             <p class="hero-description">
-                Computer Engineering student focused on research and development in AI, Computer Vision, and Thai NLP. 
-                Building systems that bridge theoretical depth with practical impact.
+                Computer Engineering student passionate about AI, Computer Vision, DevOps, and Space Technology. 
+                Building intelligent systems that bridge cutting-edge research with practical applications in both terrestrial and space domains.
             </p>
             <div class="hero-actions">
                 <a href="#research" class="btn btn-primary">View Research</a>
@@ -1010,13 +1099,13 @@
                     sparking a passion for algorithmic thinking that continues to drive my work today.
                 </p>
                 <p>
-                    I'm particularly drawn to Artificial Intelligence, especially Machine Learning, Deep Learning, 
-                    and Computer Vision. I aim to develop both theoretical depth and hands-on proficiency, from 
-                    mathematical foundations to large-scale model deployment.
+                    I'm particularly drawn to Artificial Intelligence, Computer Vision, DevOps, and Space Technology. 
+                    I aim to develop comprehensive expertise spanning from AI research and computer vision systems 
+                    to robust DevOps infrastructure and space technology applications.
                 </p>
                 <p>
-                    After completing my degree, I plan to pursue graduate studies abroad in AI, with the long-term 
-                    goal of contributing to research and innovation that meaningfully improves quality of life.
+                    After completing my degree, I plan to pursue graduate studies in AI and Space Technology, with the long-term 
+                    goal of contributing to innovative solutions at the intersection of artificial intelligence and space exploration.
                 </p>
             </div>
             <div class="about-details">
@@ -1068,10 +1157,10 @@
                     <h3 class="education-institution">Chulalongkorn University</h3>
                     <div class="education-degree">B.Eng. Computer Engineering and Digital Technology (CEDT)</div>
                     <div class="education-degree">Year 1, Class of 2030</div>
-                    <div class="education-details">Focus: Machine Learning, Computer Vision, Thai NLP</div>
+                    <div class="education-details">Focus: AI, Computer Vision, DevOps, Space Technology</div>
                 </div>
                 <div class="education-image">
-                    <img src="assets/chula_logo.svg" alt="Chulalongkorn University Logo">
+                    <img src="assets/logo/chula_logo.svg" alt="Chulalongkorn University Logo">
                 </div>
             </div>
             <div class="education-item">
@@ -1082,7 +1171,7 @@
                     <div class="education-details">Advanced C++, data structures, competitive programming</div>
                 </div>
                 <div class="education-image">
-                    <img src="assets/sbw_logo.png" alt="Saraburi Wittayakhom School Logo">
+                    <img src="assets/logo/sbw_logo.png" alt="Saraburi Wittayakhom School Logo">
                 </div>
             </div>
         </div>
@@ -1125,7 +1214,7 @@
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-badge">Outstanding AI</div>
+                <div class="project-badge gold">Outstanding AI</div>
                 <h3 class="project-title">AI Builders 5 - Tomato Disease Classification</h3>
                 <div class="project-organization">Mahidol University · Central Retail Digital</div>
                 <p class="project-description">
@@ -1175,7 +1264,7 @@
                     and insightful visualizations for real-world housing analytics.
                 </p>
                 <div style="margin-top: 1rem;">
-                    <a href="https://github.com/itertius/BostonHousing-RG" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.875rem; font-weight: 500;">
+                    <a href="https://github.com/itertius/boston-housing" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.875rem; font-weight: 500;">
                         View on GitHub ->
                     </a>
                 </div>
@@ -1197,7 +1286,7 @@
         </div>
         <div class="projects-grid fade-in">
             <div class="project-card">
-                <div class="project-badge gold">1st in Thailand</div>
+                <div class="project-badge gold">Best Deployment in Thailand</div>
                 <h3 class="project-title">Thailand CANSAT - ROCKET Competition 2025</h3>
                 <div class="project-organization">NSM · Defence Technology Institute · 104 teams</div>
                 <p class="project-description">
@@ -1211,7 +1300,7 @@
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-badge silver">Finalist</div>
+                <div class="project-badge silver">Consolation Award</div>
                 <h3 class="project-title">Thailand CANSAT - ROCKET Competition 2024</h3>
                 <div class="project-organization">NSM · Defence Technology Institute · 80+ teams</div>
                 <p class="project-description">
@@ -1229,7 +1318,7 @@
                 </p>
             </div>
             <div class="project-card">
-                <div class="project-badge silver">2nd Runner-Up</div>
+                <div class="project-badge silver">1st Runner-Up</div>
                 <h3 class="project-title">OIC InsureTech Award 2025</h3>
                 <div class="project-organization">Center of InsureTech Thailand · 400+ teams</div>
                 <p class="project-description">
@@ -1242,7 +1331,7 @@
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-badge silver">2nd Runner-Up</div>
+                <div class="project-badge silver">1st Runner-Up</div>
                 <h3 class="project-title">DeafTech Hackathon 2024</h3>
                 <div class="project-organization">UNICEF Thailand</div>
                 <p class="project-description">
@@ -1301,21 +1390,43 @@
             <h2 class="section-title">Research & Publications</h2>
             <div class="section-divider"></div>
         </div>
+        <div class="research-item">
+                <div class="research-label">Workshop Paper · CVPR 2026</div>
+                <h3 class="research-title">UColor: Advanced Seasonal Color Analysis for Perceptually-Aware Image Classification</h3>
+                <div class="research-venue">CVPR 2026 · Non-archival Track (4 pages)</div>
+                <p class="research-description">
+                    Extended workshop submission focusing on practical applications and implementation details 
+                    of the UColor system for seasonal color analysis with perceptual awareness in computer vision tasks.
+                </p>
+                <div style="margin-top: 1rem; text-align: left;">
+                    <a href="https://drive.google.com/file/d/1C-ibRBdbOys0d-G0uzMhW0tbVD3oLVbP/view?usp=sharing" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.875rem; font-weight: 500;">
+                        View Workshop Paper ->
+                    </a>
+                </div>
+                <div class="research-tags">
+                    <span class="tag">Computer Vision</span>
+                    <span class="tag">Color Science</span>
+                    <span class="tag">Workshop</span>
+                    <span class="tag">Non-archival</span>
+                    <span class="tag">Implementation</span>
+                </div>
+            </div>
         <div class="fade-in">
             <div class="research-item">
-                <div class="research-label">Workshop Paper · FGVC2026</div>
+                <div class="research-label">Conference Paper · CVPR 2026</div>
                 <h3 class="research-title">UColor: Advanced Seasonal Color Analysis for Perceptually-Aware Image Classification</h3>
-                <div class="research-venue">FGVC2026 Workshop · Non-archival 4-pages submission</div>
+                <div class="research-venue">CVPR 2026 · Full Paper</div>
                 <p class="research-description">
                     UColor addresses a fundamental gap in Computer Vision: current models perceive color in RGB 
                     without understanding human color perception. The project proposes a two-stage architecture 
                     using FaRL backbone with a hybrid perceptual loss (Cross-Entropy + CIEDE2000) to classify 
                     Seasonal Colors in a perceptually-aware manner.
                 </p>
-                <p class="research-description">
-                    Research directions: Hierarchical Classification, Perceptual-Aware Learning with CIELAB color space, 
-                    Color Branch Network, and Advanced Evaluation via distribution analysis.
-                </p>
+                <div style="margin-top: 1rem; text-align: left;">
+                    <a href="https://drive.google.com/file/d/1u7AHKhAA4DONgr4fI0H77IUHiwcUufx8/view?usp=sharing" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.875rem; font-weight: 500;">
+                        View Full Paper ->
+                    </a>
+                </div>
                 <div class="research-tags">
                     <span class="tag">Computer Vision</span>
                     <span class="tag">Color Science</span>
@@ -1327,7 +1438,7 @@
                 </div>
             </div>
             <div class="research-item">
-                <div class="research-label">Internship · Dec 2025 - Feb 2026</div>
+                <div class="research-label">Internship · Dec 2025 - Apr 2026</div>
                 <h3 class="research-title">AI Research Assistant</h3>
                 <div class="research-venue">Uphasia Artificial Intelligence Co., Ltd.</div>
                 <p class="research-description">
@@ -1632,6 +1743,94 @@
             } else {
                 themeToggle.classList.remove('dark');
             }
+        });
+
+        // Interactive Gimmicks: Cursor Trail and Typing Effect
+        document.addEventListener('DOMContentLoaded', () => {
+            // Matrix Rain Effect (10 particles) - Fresh implementation
+            const matrixRain = document.getElementById('matrixRain');
+            if (matrixRain) {
+                const matrixChars = '01AI SPACE TECH';
+                matrixRain.innerHTML = ''; // Clear any existing content
+                
+                for (let i = 0; i < 10; i++) {
+                    const column = document.createElement('div');
+                    column.style.cssText = `
+                        position: absolute; 
+                        left: ${Math.random() * 100}%; 
+                        top: -100px; 
+                        font-family: monospace; 
+                        color: var(--accent); 
+                        opacity: 0.15;
+                        font-size: 14px;
+                        white-space: pre;
+                        pointer-events: none;
+                    `;
+                    
+                    let text = '';
+                    for (let j = 0; j < 25; j++) {
+                        text += matrixChars[Math.floor(Math.random() * matrixChars.length)] + '\n';
+                    }
+                    column.textContent = text;
+                    
+                    const duration = Math.random() * 8 + 12; // 12-20 seconds
+                    column.style.animation = `matrixFall ${duration}s linear infinite`;
+                    column.style.animationDelay = `${Math.random() * 5}s`;
+                    
+                    matrixRain.appendChild(column);
+                }
+
+                // Add or update falling animation
+                let matrixStyle = document.getElementById('matrixStyle');
+                if (!matrixStyle) {
+                    matrixStyle = document.createElement('style');
+                    matrixStyle.id = 'matrixStyle';
+                    matrixStyle.textContent = `
+                        @keyframes matrixFall {
+                            to { 
+                                transform: translateY(calc(100vh + 200px)); 
+                            }
+                        }
+                    `;
+                    document.head.appendChild(matrixStyle);
+                }
+            }
+
+            // Cursor Trail Effect
+            const cursorTrail = document.getElementById('cursorTrail');
+            if (cursorTrail) {
+                let mouseX = 0, mouseY = 0;
+                let trailX = 0, trailY = 0;
+                let lastUpdate = 0;
+
+                document.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                });
+
+                function animateCursor(timestamp) {
+                    if (timestamp - lastUpdate > 16) { // ~60fps throttling
+                        trailX += (mouseX - trailX) * 0.15;
+                        trailY += (mouseY - trailY) * 0.15;
+                        cursorTrail.style.left = trailX - 10 + 'px';
+                        cursorTrail.style.top = trailY - 10 + 'px';
+                        lastUpdate = timestamp;
+                    }
+                    requestAnimationFrame(animateCursor);
+                }
+                animateCursor(0);
+            }
+
+            // Typing Effect for Hero Title
+            const heroTitle = document.querySelector('.hero-title span');
+            if (heroTitle) {
+                heroTitle.classList.add('typing-effect');
+            }
+
+            // Add Glow Effect to Cards
+            document.querySelectorAll('.project-card, .vol-item, .education-item').forEach(card => {
+                card.classList.add('glow-effect');
+            });
         });
     </script>
 </body>
