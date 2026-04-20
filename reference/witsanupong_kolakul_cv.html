@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Witsanupong Kolakul – CV</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+  :root {
+    --crimson: #2563EB;
+    --dark: #1a1a1a;
+    --mid: #444;
+    --light: #777;
+    --rule: #c8c0b4;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  @page { size: A4; margin: 0.5in 0.7in; }
+
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 8.2pt;
+    line-height: 1.35;
+    color: var(--dark);
+    max-width: 100%;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  header {
+    text-align: center;
+    border-bottom: 2px solid var(--crimson);
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.45rem;
+  }
+
+  header h1 {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 16pt;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 0.1rem;
+  }
+
+  header .tagline {
+    font-size: 8pt;
+    color: var(--crimson);
+    font-style: italic;
+    margin-top: 0.05rem;
+    margin-bottom: 0.12rem;
+  }
+
+  .contact-line {
+    margin-top: 0.2rem;
+    font-size: 7.5pt;
+    color: var(--mid);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0 0.6rem;
+    align-items: center;
+  }
+  .contact-line a { color: var(--mid); text-decoration: none; }
+
+  section { 
+    margin-top: 0.35rem;
+    page-break-inside: avoid;
+  }
+
+  .section-title {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 7.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--crimson);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.08rem;
+    margin-bottom: 0.25rem;
+    margin-top: 0.08rem;
+  }
+
+  .entry {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0 0.8rem;
+    margin-bottom: 0.2rem;
+    align-items: start;
+  }
+
+  .entry-title { font-weight: 700; font-size: 8pt; line-height: 1.2; }
+  .entry-sub { font-style: italic; color: var(--mid); font-size: 7.5pt; margin-top: 0.02rem; }
+  .entry-body { font-size: 7.5pt; color: var(--mid); margin-top: 0.03rem; line-height: 1.25; }
+  .entry-date { font-size: 7.2pt; color: var(--light); white-space: nowrap; text-align: right; padding-top: 0.03rem; font-style: italic; }
+
+  .award-badge {
+    display: inline-block;
+    font-size: 6.5pt;
+    font-weight: 700;
+    color: var(--crimson);
+    border: 1px solid var(--crimson);
+    padding: 0 0.25rem;
+    border-radius: 2px;
+    margin-right: 0.25rem;
+    vertical-align: middle;
+    white-space: nowrap;
+    box-shadow: 0 0 3px rgba(37, 99, 235, 0.3);
+  }
+  .award-badge.gold {
+    color: #FFD700;
+    border-color: #FFD700;
+    box-shadow: 0 0 3px rgba(255, 215, 0, 0.4);
+  }
+  .award-badge.silver {
+    color: #C0C0C0;
+    border-color: #C0C0C0;
+    box-shadow: 0 0 3px rgba(192, 192, 192, 0.4);
+  }
+  .award-badge.bronze {
+    color: #CD7F32;
+    border-color: #CD7F32;
+    box-shadow: 0 0 3px rgba(205, 127, 50, 0.4);
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.15rem 1rem;
+    align-items: start;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.12rem 0.8rem;
+    font-size: 7.5pt;
+    align-items: start;
+  }
+  .skill-cat { font-weight: 700; color: var(--dark); margin-bottom: 0.01rem; font-size: 7.5pt; }
+  .skill-list { color: var(--mid); font-style: italic; line-height: 1.15; font-size: 7pt; }
+
+  .pub-entry { margin-bottom: 0.2rem; }
+  .pub-title { font-weight: 700; font-size: 8pt; line-height: 1.15; }
+  .pub-venue { font-style: italic; color: var(--mid); font-size: 7.5pt; margin-top: 0.02rem; }
+  .pub-desc  { font-size: 7.5pt; color: var(--mid); margin-top: 0.03rem; line-height: 1.2; }
+
+  ul.cv-list { list-style: none; padding: 0; }
+  ul.cv-list li {
+    padding-left: 0.9rem;
+    position: relative;
+    font-size: 7.5pt;
+    color: var(--mid);
+    margin-bottom: 0.06rem;
+    line-height: 1.15;
+  }
+  ul.cv-list li::before { content: '—'; position: absolute; left: 0; color: var(--rule); }
+
+  footer {
+    margin-top: 0.35rem;
+    border-top: 1px solid var(--rule);
+    padding-top: 0.2rem;
+    text-align: center;
+    font-size: 7pt;
+    color: var(--light);
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <h1>Witsanupong Kolakul</h1>
+  <div class="tagline">AI Engineer &amp; Researcher · Computer Vision · NLP · Space Technology</div>
+  <div class="contact-line">
+    <span>Saraburi &amp; Bangkok, Thailand</span>
+    <a href="mailto:teverygood@gmail.com">teverygood@gmail.com</a>
+    <a href="https://github.com/itertius">github.com/itertius</a>
+    <a href="https://www.linkedin.com/in/witsanupong-kolakul-4a9784330">linkedin.com/in/witsanupong-kolakul</a>
+  </div>
+</header>
+
+<!-- EDUCATION -->
+<section>
+  <div class="section-title">Education</div>
+
+  <div class="entry">
+    <div>
+      <div class="entry-title">Chulalongkorn University — Bangkok, Thailand</div>
+      <div class="entry-sub">B.Eng. Computer Engineering and Digital Technology (CEDT)</div>
+      <div class="entry-body">Year 1, Class of 2030 · Focus: Artificial Intelligence, Computer Vision, DevOps, Space Technology</div>
+    </div>
+    <div class="entry-date">2025 – Present</div>
+  </div>
+
+  <div class="entry">
+    <div>
+      <div class="entry-title">Saraburi Wittayakhom School — Saraburi, Thailand</div>
+      <div class="entry-sub">High School Diploma · Science–Mathematics Program · GPAX 3.59</div>
+      <div class="entry-body">Advanced Mathematics, Physics, Chemistry, and Biology</div>
+    </div>
+    <div class="entry-date">2020 – March 2026</div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section>
+  <div class="section-title">Research &amp; Publications</div>
+  <div class="pub-entry">
+    <div class="pub-title">Perceptual Loss-Based Approaches to Personal Color Season Classification</div>
+    <div class="pub-venue">CVPR 2026 · Non-archival Track (4 pages) </div>
+    <div class="pub-desc">Two-stage pipeline with hybrid cross-entropy + CIEDE2000 perceptual loss for seasonal color classification. Reduces cross-undertone errors by 4.2% (±0.42%) and improves accuracy by 13.4% compared to baseline (46.9% ±0.42%).</div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section>
+  <div class="section-title">Awards &amp; Competitions</div>
+
+  <div class="entry">
+    <div>
+      <div class="entry-title"><span class="award-badge gold">Best Deployment</span>Thailand CANSAT–ROCKET Competition 2025</div>
+      <div class="entry-sub">NSM · Defence Technology Institute · 104 teams · Prize: 5,000 THB</div>
+      <div class="entry-body">PM &amp; Software Engineer. Ground Station, Flight Software, and Deployment Software. Only team in Thailand with this end-to-end system design.</div>
+    </div>
+    <div class="entry-date">2025</div>
+  </div>
+
+  <div class="entry">
+    <div>
+      <div class="entry-title"><span class="award-badge silver">1st Runner-Up</span>OIC InsureTech Award 2025</div>
+      <div class="entry-sub">Center of InsureTech Thailand · 400+ teams · Prize: 70,000 THB</div>
+      <div class="entry-body">"InsureMate" — AI application for insurance literacy integrating ML and NLP/LLM features.</div>
+    </div>
+    <div class="entry-date">2025</div>
+  </div>
+
+  <div class="entry">
+    <div>
+      <div class="entry-title"><span class="award-badge silver">Silver Medal</span>Thailand AI Engineering Championship 2025</div>
+      <div class="entry-sub">CMKL University · AST · 800+ participants</div>
+      <div class="entry-body">Topics: KNN, K-Means Clustering, DAG Scheduling. 2nd place after an intensive 2-month preparation phase.</div>
+    </div>
+    <div class="entry-date">2025</div>
+  </div>
+
+  <div class="entry">
+    <div>
+      <div class="entry-title"><span class="award-badge silver">1st Runner-Up</span>DeafTech Hackathon 2024</div>
+      <div class="entry-sub">UNICEF Thailand · Prize: 6,000 THB</div>
+      <div class="entry-body">"ThaiSign Application" — Thai sign language learning app using MediaPipe + MobileNetV2.</div>
+    </div>
+    <div class="entry-date">2024</div>
+  </div>
+
+  <div class="entry">
+    <div>
+      <div class="entry-title"><span class="award-badge gold">Outstanding AI</span>AI Builders 5 — Tomato Disease Classification</div>
+      <div class="entry-sub">Mahidol University · Central Retail Digital</div>
+      <div class="entry-body">Edge contour detection for plant separation; addressed data imbalance and real-world noise.</div>
+    </div>
+    <div class="entry-date">2024</div>
+  </div>
+
+  <div class="entry">
+    <div>
+      <div class="entry-title"><span class="award-badge bronze">Consolation</span>Thailand CANSAT–ROCKET Competition 2024</div>
+      <div class="entry-sub">NSM · Defence Technology Institute · 100 teams</div>
+      <div class="entry-body">Software Engineer &amp; Systems Integration. Advanced to national finals.</div>
+    </div>
+    <div class="entry-date">2024</div>
+  </div>
+
+  <div class="entry">
+    <div>
+      <div class="entry-title"><span class="award-badge bronze">Semi-Finalist</span>Thailand Metaverse Hackathon #1 &amp; #2</div>
+      <div class="entry-sub">Faculty of Engineering, Chulalongkorn University · OIC Thailand · Top 20 teams</div>
+      <div class="entry-body">PM &amp; Full-Stack Developer. VR app for OCD Exposure Therapy (Unity, React Native, Node.js); VR insurance learning simulation.</div>
+    </div>
+    <div class="entry-date">2024 – 2025</div>
+  </div>
+
+  <div class="entry">
+    <div>
+      <div class="entry-title"><span class="award-badge silver">1st Runner-Up</span>Kasetsart Water Rocket Championship 2024</div>
+      <div class="entry-body">Water rocket design and flight optimization competition. Achieved 1st Runner Up through innovative aerodynamic design and precise trajectory calculations.</div>
+    </div>
+    <div class="entry-date">2024</div>
+  </div>
+
+  <div class="entry">
+    <div>
+      <div class="entry-title">SPU AI PROMPT Mini Hackathon 2025</div>
+      <div class="entry-body">EDA, data cleaning, and AutoGluon model training for prompt quest challenge. Top quartile performance.</div>
+    </div>
+    <div class="entry-date">2025</div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section>
+  <div class="section-title">Selected Projects</div>
+  <div class="two-col">
+    <div class="entry" style="grid-template-columns:1fr; margin-bottom:0.12rem;">
+      <div>
+        <div class="entry-title">AI for Thai — Exercise Form Analysis</div>
+        <div class="entry-sub">MediaPipe · Pathumma LLM · VAJA TTS</div>
+        <div class="entry-body">Real-time AI coaching with pose detection and Thai TTS feedback for athletes.</div>
+      </div>
+    </div>
+          <div class="entry" style="grid-template-columns:1fr; margin-bottom:0.12rem;">
+      <div>
+        <div class="entry-title">Subscription Hub — Payment Tracker</div>
+        <div class="entry-sub">React · Node.js · Docker · GitHub Actions</div>
+        <div class="entry-body">Full-stack payment tracker with multi-currency support and CI/CD deployment.</div>
+      </div>
+    </div>
+    <div class="entry" style="grid-template-columns:1fr; margin-bottom:0.12rem;">
+      <div>
+        <div class="entry-title">AI Thai Learning Companions</div>
+        <div class="entry-sub">NLP · LLM · Text-to-Speech</div>
+        <div class="entry-body">AI-powered Thai learning app with vocabulary exercises and TTS functionality.</div>
+      </div>
+    </div>
+    <div class="entry" style="grid-template-columns:1fr; margin-bottom:0.12rem;">
+      <div>
+        <div class="entry-title">BostonHousing - Smart Regression</div>
+        <div class="entry-sub">Regression · Data Visualization · Analytics</div>
+        <div class="entry-body">Data cleaning, feature engineering, and evaluation with scikit-learn and pandas.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section>
+  <div class="section-title">Technical Skills</div>
+  <div class="skills-grid">
+    <div>
+      <span class="skill-cat">Machine Learning:</span>
+      <span class="skill-list">PyTorch, TensorFlow, Scikit-learn, AutoGluon, Optuna, XGBoost</span>
+    </div>
+    <div>
+      <span class="skill-cat">Computer Vision:</span>
+      <span class="skill-list">FaRL, CLIP, OpenCV, MediaPipe, EasyOCR, Tesseract</span>
+    </div>
+    <div>
+      <span class="skill-cat">NLP &amp; LLMs:</span>
+      <span class="skill-list">Thai NLP, BM25, TF-IDF, RAG Pipelines, Typhoon, OpenThaiGPT</span>
+    </div>
+    <div>
+      <span class="skill-cat">Languages:</span>
+      <span class="skill-list">Python, C, C++, JavaScript</span>
+    </div>
+    <div>
+      <span class="skill-cat">Frameworks:</span>
+      <span class="skill-list">React, Vue.js, Node.js, NumPy, Pandas, Matplotlib, Plotly</span>
+    </div>
+    <div>
+      <span class="skill-cat">Tools &amp; Platforms:</span>
+      <span class="skill-list">Git, Docker, Google Colab, Kaggle, Figma, Unity, LaTeX, Arduino</span>
+    </div>
+  </div>
+</section>
+
+<!-- VOLUNTEER -->
+<section>
+  <div class="section-title">Volunteer &amp; Leadership</div>
+
+  <div class="entry">
+    <div>
+      <div class="entry-title">Team Mentor &amp; Advisor — Thailand CANSAT–ROCKET 2026</div>
+      <div class="entry-body">Volunteer PM for two finalist teams (Sky's Line &amp; Sky's Rift 2). Technical guidance throughout competition cycle.</div>
+    </div>
+    <div class="entry-date">2026</div>
+  </div>
+
+  <div class="entry">
+    <div>
+      <div class="entry-title">Guest Speaker — OIC International Insurance Symposium 2025</div>
+      <div class="entry-body">Invited speaker on AI applications in insurance technology and innovation.</div>
+    </div>
+    <div class="entry-date">2025</div>
+  </div>
+
+  <div class="entry">
+    <div>
+      <div class="entry-title">Teaching Assistant — Computer Olympiad Training Camp</div>
+      <div class="entry-body">Algorithms, data structures, and competitive programming in C++.</div>
+    </div>
+    <div class="entry-date">2025</div>
+  </div>
+
+  <div class="entry">
+    <div>
+      <div class="entry-title">President of Yellow House — Saraburi Wittayakhom School</div>
+      <div class="entry-body">Managed 1 of 4 houses with 1000+ members. Led house to victory as best house during SBW games week.</div>
+    </div>
+    <div class="entry-date">2024</div>
+  </div>
+
+  <div class="entry">
+    <div>
+      <div class="entry-title">Technical Writing (Medium / GitHub)</div>
+      <div class="entry-body">Published technical articles and tutorials on AI, machine learning, and software development.</div>
+    </div>
+    <div class="entry-date">Ongoing</div>
+  </div>
+</section>
+
+<footer>References available upon request &nbsp;·&nbsp; Last updated April 2026</footer>
+
+</body>
+</html>
