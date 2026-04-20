@@ -898,44 +898,49 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            nav { padding: 0 1.25rem; }
+            nav { padding: 0 1rem; }
             .nav-links { display: none; }
-            .hero { padding: 2rem 1rem; }
-            section { padding: 3rem 1rem; }
-            .about-grid, .contact-content { grid-template-columns: 1fr; gap: 2.5rem; }
+            .hero { padding: 2rem 0.75rem; }
+            section { padding: 3rem 0.75rem; }
+            .about-grid, .contact-content { grid-template-columns: 1fr; gap: 2rem; }
             .edu-entry { grid-template-columns: 1fr; gap: 0.25rem; }
             .projects-grid { 
                 grid-template-columns: 1fr; 
-                gap: 2rem;
+                gap: 1.5rem;
                 margin-top: 0.5rem;
+                margin-left: 0;
+                margin-right: 0;
             }
             .project-card {
-                padding: 2rem;
+                padding: 1.5rem;
                 border-radius: 12px;
+                margin-left: 0;
+                margin-right: 0;
             }
             .project-badge {
-                font-size: 0.75rem;
-                padding: 0.3rem 0.8rem;
-                margin-bottom: 1.2rem;
+                font-size: 0.7rem;
+                padding: 0.25rem 0.6rem;
+                margin-bottom: 0.8rem;
             }
             .project-title {
-                font-size: 1.15rem;
-                line-height: 1.4;
-                margin-bottom: 0.6rem;
+                font-size: 1rem;
+                line-height: 1.3;
+                margin-bottom: 0.5rem;
             }
             .project-organization {
-                font-size: 0.85rem;
-                margin-bottom: 1rem;
+                font-size: 0.8rem;
+                margin-bottom: 0.8rem;
             }
             .project-description {
-                font-size: 0.95rem;
-                line-height: 1.6;
+                font-size: 0.85rem;
+                line-height: 1.5;
             }
-            .skills-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
-            .vol-grid { grid-template-columns: 1fr; }
-            .stat-row { grid-template-columns: 1fr 1fr; }
+            .skills-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-left: 0; margin-right: 0; }
+            .vol-grid { grid-template-columns: 1fr; gap: 1.5rem; margin-left: 0; margin-right: 0; }
+            .stat-row { grid-template-columns: 1fr 1fr; gap: 1rem; }
             .stats-grid {
                 grid-template-columns: 1fr;
+                gap: 1rem;
             }
 
             .footer-content {
@@ -946,22 +951,36 @@
         }
 
         @media (max-width: 480px) {
+            nav { padding: 0 0.5rem; }
+            .hero { padding: 2rem 0.5rem; }
+            section { padding: 2rem 0.5rem; }
             .projects-grid {
                 gap: 1rem;
+                margin-left: 0;
+                margin-right: 0;
             }
             .project-card {
                 padding: 1rem;
+                margin-left: 0;
+                margin-right: 0;
             }
             .project-badge {
-                font-size: 0.7rem;
-                padding: 0.2rem 0.6rem;
+                font-size: 0.65rem;
+                padding: 0.2rem 0.5rem;
+                margin-bottom: 0.6rem;
             }
             .project-title {
-                font-size: 1rem;
+                font-size: 0.9rem;
+                line-height: 1.3;
+                margin-bottom: 0.4rem;
             }
             .project-description {
-                font-size: 0.85rem;
+                font-size: 0.8rem;
+                line-height: 1.4;
             }
+            .skills-grid { gap: 1rem; }
+            .vol-grid { gap: 1rem; }
+            .stats-grid { gap: 0.8rem; }
         }
 
         /* Animations */
