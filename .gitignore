@@ -70,3 +70,6 @@ jspm_packages/
 
 # Serverless directories
 .serverless
+
+# Local task notes
+reference/updated.md
